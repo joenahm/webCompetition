@@ -2,6 +2,7 @@
 <html>
 <head>
 	<?php include('head.php'); ?> <!-- 包含head的内容 -->
+	<title>兼了个职-大学生兼职平台</title>
 </head>
 <body>
 	<?php include('nav.php'); ?> <!-- 包含导航 -->
@@ -28,13 +29,16 @@
 					</div>
 					<div class="panel-body">
 						<div class="col-md-6">
-							<li class="jobInfo"><a href="#">2017.11.10 那哪那谁谁谁发的兼职</a></li>
-							<li class="jobInfo"><a href="#">2017.11.10 那哪那谁谁谁发的兼职</a></li>
-							<li class="jobInfo"><a href="#">2017.11.10 那哪那谁谁谁发的兼职</a></li>
-							<li class="jobInfo"><a href="#">2017.11.10 那哪那谁谁谁发的兼职</a></li>
+							<li class="jobInfo"><a href="detail.php">2017.11.10 那哪那谁谁谁发的兼职</a> <span class="label label-success">New !</span> <span class="pull-right publisher"><a href="">xxx</a> 发布于2017.11.15</span></li><hr>
+							<li class="jobInfo"><a href="#">2017.11.10 那哪那谁谁谁发的兼职</a> <span class="label label-success">New !</span> <span class="pull-right publisher"><a href="">xxx</a> 发布于2017.11.15</span></li><hr>
+							<li class="jobInfo"><a href="#">2017.11.10 那哪那谁谁谁发的兼职</a> <span class="label label-success">New !</span> <span class="pull-right publisher"><a href="">xxx</a> 发布于2017.11.15</span></li><hr>
+							<li class="jobInfo"><a href="#">2017.11.10 那哪那谁谁谁发的兼职</a> <span class="label label-success">New !</span> <span class="pull-right publisher"><a href="">xxx</a> 发布于2017.11.15</span></li>
 						</div>
 						<div class="col-md-6">
-							<li class="jobInfo"><a href="#">2017.11.10 那哪那谁谁谁发的兼职</a></li>
+							<li class="jobInfo"><a href="#">2017.11.10 那哪那谁谁谁发的兼职</a> <span class="label label-success">New !</span> <span class="pull-right publisher"><a href="">xxx</a> 发布于2017.11.15</span></li><hr>
+							<li class="jobInfo"><a href="#">2017.11.10 那哪那谁谁谁发的兼职</a> <span class="label label-success">New !</span> <span class="pull-right publisher"><a href="">xxx</a> 发布于2017.11.15</span></li><hr>
+							<li class="jobInfo"><a href="#">2017.11.10 那哪那谁谁谁发的兼职</a> <span class="label label-success">New !</span> <span class="pull-right publisher"><a href="">xxx</a> 发布于2017.11.15</span></li><hr>
+							<li class="jobInfo"><a href="#">2017.11.10 那哪那谁谁谁发的兼职</a> <span class="label label-success">New !</span> <span class="pull-right publisher"><a href="">xxx</a> 发布于2017.11.15</span></li>
 						</div>
 					</div>
 				</div>
@@ -52,7 +56,7 @@
 								<div class="thumbnail">
 									<img src="public/images/merchant.jpg" alt="商家">
 									<div class="caption text-center">
-										<h3>商家1</h3>
+										<h3>商家1 <span class="label label-warning" data-toggle="tooltip" data-placement="right" title="此积分代表商家的信用等级">10</span></h3>
 										<p>商家介绍</p>
 										<p><a href="#" class="btn btn-default center-block" role="button">查看详情</a></p>
 									</div>
@@ -118,6 +122,6 @@
 	</div>
 	<?php include('footer.php'); ?>	<!-- 包含页脚和返回顶部按钮 -->
 </body>
-<?php include('popPanel.php'); ?> <!-- 包含弹窗 -->
+<?php include('popModal.php'); ?> <!-- 包含弹窗 -->
 <script src="public\js\common.js"></script>
 </html>

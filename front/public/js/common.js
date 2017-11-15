@@ -20,31 +20,15 @@ function setBackTop(){
 	});
 }
 
-function setPopPanel(){
-	$("#mask").height($(document).height());
-
-	var panelArr = $(".popPanel");
-	for( var i = 0 ; i < panelArr.length ; i++ ){
-		panelArr.eq(i).css({"left":(($(document).width()-panelArr.eq(i).width())/2)+"px"});
-	}
-}
-
-function closePanel(panelName){
-	$(panelName).hide(100);
-	$("#mask").fadeOut(100);
-}
-
-function openPanel(panelName){
-	$("#mask").fadeIn(100);
-	$(panelName).show(100);
-}
-
 
 $(function(){
 	setBackTop();
-	setPopPanel();
 
-	$("form").get(0).onsubmit = function(){ //阻止表单提交
-		return false;
+	for( var i = 0 ; i < $("form").length ; i++ ){
+		$("form").get(i).onsubmit = function(){ //阻止表单提交
+			return false;
+		}
 	}
+
+	$('[data-toggle="tooltip"]').tooltip();
 });	

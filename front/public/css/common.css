@@ -8,7 +8,8 @@ body {
   #nav .navbar-nav > li > a {
     color: #fff; }
     #nav .navbar-nav > li > a:hover {
-      color: #eee; }
+      color: #eee;
+      background: #00a0a2; }
   #nav .navbar-nav > .active > a, #nav .navbar-nav > .active > a:focus, #nav .navbar-nav > .active > a:hover, #nav .navbar-nav > .open > a, #nav .navbar-nav > .open > a:focus, #nav .navbar-nav > .open > a:hover {
     background: #00a0a2; }
   #nav .navbar-toggle:focus, #nav .navbar-toggle:hover {
@@ -38,8 +39,18 @@ body {
     background: #00a0a2;
     color: #eee; }
 
+.well-white {
+  background: #fff; }
+
+.list-group-item {
+  padding: 20px; }
+
 .jobInfo {
-  margin: 10px; }
+  margin: 10px;
+  list-style: none; }
+
+.publisher {
+  color: #aaa; }
 
 #backTop {
   position: fixed;
@@ -57,19 +68,3 @@ footer {
   footer span {
     color: #fff;
     font-size: 16px; }
-
-#mask {
-  width: 100%;
-  background: #222;
-  opacity: 0.7;
-  z-index: 9999;
-  position: fixed;
-  top: 0px;
-  display: none; }
-
-.popPanel {
-  z-index: 10000;
-  position: fixed;
-  width: 30%;
-  top: 20%;
-  display: none; }

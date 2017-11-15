@@ -15,12 +15,12 @@
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">首页<span class="sr-only">(current)</span></a></li>
-					<li><a href="#">兼职大厅</a></li>
+					<li><a href="index.php">首页<span class="sr-only">(current)</span></a></li>
+					<li><a href="hall.php">兼职大厅</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#" id="signIn" onclick="openPanel('#signInPanel')">注册</a></li>
-					<li><a href="#" id="signUp" onclick="openPanel('#signUpPanel')">登录</a></li>
+					<li><a href="#" id="signIn" data-toggle="modal" data-target="#signInModal">注册</a></li>
+					<li><a href="#" id="signUp" data-toggle="modal" data-target="#signUpModal">登录</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right" id="userToggle" style="display: none;">
 					<li class="dropdown">
