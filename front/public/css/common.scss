@@ -17,6 +17,14 @@ body{
 	.navbar-nav>.active>a, .navbar-nav>.active>a:focus, .navbar-nav>.active>a:hover, .navbar-nav>.open>a, .navbar-nav>.open>a:focus, .navbar-nav>.open>a:hover{
 		background: #00a0a2;
 	}
+
+	.navbar-toggle:focus, .navbar-toggle:hover{
+		background: #00a0a2;
+	}
+
+	.navbar-toggle .icon-bar{
+		background: #fff;
+	}
 	
 	#userToggle{
 		#user{
@@ -54,6 +62,13 @@ body{
 	margin: 10px;
 }
 
+#backTop{
+	position: fixed;
+	right: 1%;
+	bottom: 5%;
+	display: none;
+}
+
 footer{
 	margin-top:50px;
 	width: 100%;
@@ -66,4 +81,22 @@ footer{
 		color: #fff;
 		font-size: 16px;
 	}
+}
+
+#mask{
+	width: 100%;
+	background: #222;
+	opacity: 0.7;
+	z-index: 9999;
+	position: fixed;
+	top: 0px;
+	display: none;
+}
+
+.popPanel{
+	z-index:10000;
+	position: fixed;
+	width: 30%;
+	top: 20%;
+	display: none;
 }

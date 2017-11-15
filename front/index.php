@@ -1,58 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>兼了个职-大学生兼职平台</title>
-	<link rel="icon" href="../public/images/favicon.ico">
-	<script src="../public/js/jquery.js"></script>
-	<link rel="stylesheet" href="../public/bootstrap/css/bootstrap.min.css">
-	<script src="../public/bootstrap/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="public/css/common.css">
+	<?php include('head.php'); ?> <!-- 包含head的内容 -->
 </head>
 <body>
-	<nav class="navbar navbar-default navbar-fixed-top" id="nav">
-		<div class="container-fluid">
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="#"><img src="public/images/logo.png" alt="兼了个职" height="100%"></a>
-				</div>
-
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li class="active"><a href="#">首页<span class="sr-only">(current)</span></a></li>
-						<li><a href="#">兼职大厅</a></li>
-					</ul>
-					<ul class="nav navbar-nav navbar-right" id="signIn">
-						<!--!-->				<li><a href="#">注册</a></li>
-						<li><a href="#">登录</a></li>
-					</ul>
-					<ul class="nav navbar-nav navbar-right" id="userToggle" style="display: none;">
-						<li class="dropdown">
-							<a href="#" id="user" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">消息</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a href="#">我的资料</a></li>
-								<li><a href="#">我的兼职</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a href="#">退出</a></li>
-							</ul>
-						</li>
-					</ul>
-				</div><!-- /.navbar-collapse -->
-			</div>
-		</div><!-- /.container-fluid -->
-	</nav>
+	<?php include('nav.php'); ?> <!-- 包含导航 -->
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
@@ -96,37 +48,59 @@
 					</div>
 					<div class="panel-body">
 						<div class="row">
-							<div class="col-md-4">
+							<div class="col-md-4 merchant">
 								<div class="thumbnail">
 									<img src="public/images/merchant.jpg" alt="商家">
 									<div class="caption text-center">
-										<h3>天上人间</h3>
+										<h3>商家1</h3>
 										<p>商家介绍</p>
 										<p><a href="#" class="btn btn-default center-block" role="button">查看详情</a></p>
 									</div>
 								</div>
 							</div>
-							<div class="col-md-4">
+							<div class="col-md-4 merchant">
 								<div class="thumbnail">
 									<img src="public/images/merchant.jpg" alt="商家">
 									<div class="caption text-center">
-										<h3>商家名称</h3>
+										<h3>商家2</h3>
 										<p>商家介绍</p>
 										<p><a href="#" class="btn btn-default center-block" role="button">查看详情</a></p>
 									</div>
 								</div>
 							</div>
-							<div class="col-md-4">
+							<div class="col-md-4 merchant">
 								<div class="thumbnail">
 									<img src="public/images/merchant.jpg" alt="商家">
 									<div class="caption text-center">
-										<h3>商家名称</h3>
+										<h3>商家3</h3>
 										<p>商家介绍</p>
 										<p><a href="#" class="btn btn-default center-block" role="button">查看详情</a></p>
 									</div>
 								</div>
 							</div>
-							<div class="col-md-4" id="aaa" style="display: none;">
+						</div>
+						<div class="row">
+							<div class="col-md-4 merchant">
+								<div class="thumbnail">
+									<img src="public/images/merchant.jpg" alt="商家">
+									<div class="caption text-center">
+										<h3>骚的一批</h3>
+										<p>商家介绍</p>
+										<p><a href="#" class="btn btn-default center-block" role="button">查看详情</a></p>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4 merchant">
+								<div class="thumbnail">
+									<img src="public/images/merchant.jpg" alt="商家">
+									<div class="caption text-center">
+										<h3>骚的一批</h3>
+										<p>商家介绍</p>
+										<p><a href="#" class="btn btn-default center-block" role="button">查看详情</a></p>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4 merchant">
 								<div class="thumbnail">
 									<img src="public/images/merchant.jpg" alt="商家">
 									<div class="caption text-center">
@@ -142,18 +116,8 @@
 			</div>
 		</div>
 	</div>
-	<div class="panel panel-default">
-		<div class="panel-heading">
-			<h3 class="panel-title">Panel title</h3>
-		</div>
-		<div class="panel-body">
-			Panel content
-		</div>
-	</div>
-	<footer>
-		<span>Copyright © 2017</span>
-	</footer>
+	<?php include('footer.php'); ?>	<!-- 包含页脚和返回顶部按钮 -->
 </body>
-<script>
-</script>
+<?php include('popPanel.php'); ?> <!-- 包含弹窗 -->
+<script src="public\js\common.js"></script>
 </html>
