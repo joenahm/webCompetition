@@ -4,6 +4,7 @@
 	<?php include('head.php'); ?> <!-- 包含head的内容 -->
 	<title>兼职大厅-兼了个职-大学生兼职平台</title>
 	<link rel="stylesheet" href="public/css/hall.css">
+	<!-- src前边加上__PUBLIC__/index -->
 </head>
 <body>
 	<?php include('nav.php'); ?> <!-- 包含导航 -->
@@ -61,4 +62,5 @@
 </body>
 <?php include('popModal.php'); ?> <!-- 包含弹窗 -->
 <script src="public\js\common.js"></script>
+<!-- src前边加上__PUBLIC__/index -->
 </html>

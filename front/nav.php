@@ -10,6 +10,7 @@
 					<span class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="#"><img src="public/images/logo.png" alt="兼了个职" height="100%"></a>
+				<!-- src前边加上__PUBLIC__/index/ -->
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
