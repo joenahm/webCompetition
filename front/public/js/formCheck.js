@@ -64,18 +64,84 @@ function checkPassword(passwordObj){
 
 function checkUsertype(usertypeObj){
 	var radioArr = usertypeObj;
-	var status;
+	var status = false;
 	for( var i = 0 ; i < radioArr.length ; i++ ){
-		alert(radioArr.eq(i).val());
+		if( radioArr.eq(i).children("input").is(":checked") ){
+			status = true;
+		}
 	}
+
+	if( status ){
+		setSuccess(usertypeObj);
+	}else{
+		setWarning(usertypeObj,"请选择一种用户类型！");
+	}
+
+	return status;
 }
 
-$(function(){
+function checkSignIn(phone, username, password, usertype){
+	var status = checkPhone(phone) 
+	&& checkUsername(username) 
+	&& checkPassword(password) 
+	&& checkUsertype(usertype);
+
+	return status;
+}
+
+function checkSignUp(username, password){
+	var status = checkUsername(username)
+	&& checkPassword(password);
+
+	return status;
+}
+
+function signIn(){
+	$("#phone").blur(function(){
+		checkPhone($("#phone"));
+	});
+
+	$("#si-username").keydown(function(){
+		checkPhone($("#phone"));
+	});
+
+	$("#si-username").blur(function(){
+		checkPhone($("#phone"));
+		checkUsername($("#si-username"));
+	});
+
+	$("#si-password").keydown(function(){
+		checkPhone($("#phone"));
+		checkUsername($("#si-username"));
+	});
+
+	$("#si-password").blur(function(){
+		checkPhone($("#phone"));
+		checkUsername($("#si-username"));
+		checkPassword($("#si-password"));
+	});
+
 	$("#signInBtn").click(function(){
-		var status = checkPhone($("#phone")) && checkUsername($("#username")) && checkPassword($("#password")) && checkUsertype($(".usertype"));
+		var status = checkSignIn($("#phone"),$("#si-username"),$("#si-password"),$(".usertype"));
 
 		if( status ){
 			alert("验证成功！");
 		}
 	});
+}
+
+function signUp(){
+	$("#signUpBtn").click(function(){
+		var status = checkSignUp($("#su-username"),$("#su-password"));
+
+		if( status ){
+			alert("登录成功！")
+		}
+	});
+}
+
+$(function(){
+	signIn();
+	signUp();
 });
+/* 表单验证要求DOM结构丝毫不得改变 */

@@ -16,17 +16,17 @@
 						</div>
 					</div>
 					<div class="form-group has-feedback">
-						<label for="username" class="col-sm-2 control-label">用户名</label>
+						<label for="si-username" class="col-sm-2 control-label">用户名</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="username" name="username" placeholder="只能是字母数字下划线, 且必须以字母开头">
+							<input type="text" class="form-control" id="si-username" name="si-username" placeholder="只能是字母数字下划线, 且必须以字母开头">
 							<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 							<span class="help-block"></span>
 						</div>
 					</div>
 					<div class="form-group has-feedback">
-						<label for="password" class="col-sm-2 control-label">密码</label>
+						<label for="si-password" class="col-sm-2 control-label">密码</label>
 						<div class="col-sm-10">
-							<input type="password" class="form-control" id="password" name="password" placeholder="请输入密码">
+							<input type="password" class="form-control" id="si-password" name="si-password" placeholder="请输入密码">
 							<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 							<span class="help-block"></span>
 						</div>
@@ -34,11 +34,11 @@
 					<div class="form-group has-feedback">
 						<div class="col-sm-offset-2 col-sm-10">
 							<div class="radio">
-								<label>
-									<input class="usertype" type="radio" name="usertype" value="student"> 我是学生
+								<label class="usertype">
+									<input type="radio" name="usertype" value="student"> 我是学生
 								</label>
-								<label>
-									<input class="usertype" type="radio" name="usertype" value="merchant"> 我是商家
+								<label class="usertype">
+									<input type="radio" name="usertype" value="merchant"> 我是商家
 								</label>
 								<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 								<span class="help-block"></span>
@@ -64,20 +64,24 @@
 			</div>
 			<div class="modal-body">
 				<form class="form-horizontal">
-					<div class="form-group">
-						<label for="username" class="col-sm-2 control-label">用户名</label>
+					<div class="form-group has-feedback">
+						<label for="su-username" class="col-sm-2 control-label">用户名</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="username" name="username" placeholder="请输入用户名">
+							<input type="text" class="form-control" id="su-username" name="su-username" placeholder="请输入用户名">
+							<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+							<span class="help-block"></span>
 						</div>
 					</div>
-					<div class="form-group">
-						<label for="password" class="col-sm-2 control-label">密码</label>
+					<div class="form-group has-feedback">
+						<label for="su-password" class="col-sm-2 control-label">密码</label>
 						<div class="col-sm-10">
-							<input type="password" class="form-control" id="password" name="password" placeholder="请输入密码">
+							<input type="password" class="form-control" id="su-password" name="su-password" placeholder="请输入密码">
+							<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+								<span class="help-block"></span>
 						</div>
 					</div>
 					<div class="modal-footer">
-						<button type="buttom" class="btn btn-primary">登录</button>
+						<button type="buttom" class="btn btn-primary" id="signUpBtn">登录</button>
 						<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
 					</div>
 				</form>
