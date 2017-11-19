@@ -3,7 +3,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title" id="myModalLabel">注册</h4>
+				<h4 class="modal-title text-center" id="myModalLabel">注册</h4>
 			</div>
 			<div class="modal-body">
 				<form class="form-horizontal">
@@ -60,7 +60,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title" id="myModalLabel">登录</h4>
+				<h4 class="modal-title text-center" id="myModalLabel">登录</h4>
 			</div>
 			<div class="modal-body">
 				<form class="form-horizontal">
@@ -89,5 +89,23 @@
 		</div>
 	</div>
 </div>
-<script src="public/js/formCheck.js"></script>
+
+<div class="modal fade" id="statusBack" tabindex="-1" role="dialog" aria-labelledby="statusBackModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title text-center" id="statusBackModalLabel"></h4>
+			</div>
+			<div class="modal-body text-center">
+				<h1 class="glyphicon"></h1><br><br>
+				<span id="msgBack"></span>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+			</div>
+		</div>
+	</div>
+</div>
+<script src=<?php echo '"public/js/formCheck.js?v'.rand().'"'; ?>></script>
 <!-- src前边加上__PUBLIC__/index/ -->

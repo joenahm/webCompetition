@@ -123,6 +123,6 @@
 	<?php include('footer.php'); ?>	<!-- 包含页脚和返回顶部按钮 -->
 </body>
 <?php include('popModal.php'); ?> <!-- 包含弹窗 -->
-<script src="public\js\common.js"></script>
+<script src=<?php echo '"public/js/common.js?v'.rand().'"'; ?>></script>
 <!-- src前边加上__PUBLIC__/index/ -->
 </html>

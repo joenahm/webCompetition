@@ -19,11 +19,11 @@ function setError(obj, msg){
 function checkPhone(phoneObj){
 	var status;
 	if( isNaN(phoneObj.val()) ){
-	 	status = false;
-	 	setError(phoneObj,"电话号码必须为数字！");
+		status = false;
+		setError(phoneObj,"电话号码必须为数字！");
 	}else if( phoneObj.val().length < 7 ){
 		status = false;
-	 	setWarning(phoneObj,"电话号码不能短于7位！");
+		setWarning(phoneObj,"电话号码不能短于7位！");
 	}else{
 		status = true;
 		setSuccess(phoneObj);
@@ -125,7 +125,55 @@ function signIn(){
 		var status = checkSignIn($("#phone"),$("#si-username"),$("#si-password"),$(".usertype"));
 
 		if( status ){
-			alert("验证成功！");
+			var info = [];
+			info['phone'] = $("#phone").val();
+			info['username'] = $("#si-username").val();
+			info['password'] = $("#si-password").val();
+			for( var i = 0 ; i < $(".usertype").children("input").length ; i++ ){
+				var itemObj = $(".usertype").children("input").eq(i);
+				if( itemObj.is(":checked") ){
+					info['usertype'] = itemObj.val();
+				}
+			}
+			
+			$("#signInModal").modal('hide');
+
+			var backInfo = $.ajax({
+			    url:'192.168.10.107/jianlegezhi/public/index.php/index/index/index.html',
+			    type:'POST', //GET
+			    async:true,    //或false,是否异步
+			    data:{
+			        phone:info['phone'],
+			        username:info['username'],
+			        password:info['password'],
+			        usertype:info['usertype']
+			    },
+			    timeout:5000,    //超时时间
+			    dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+			    beforeSend:function(){
+			    	$("#statusBack").modal('show');
+			    	$("#statusBack").find("#statusBackModalLabel").text("注册");
+					$("#statusBack").find(".glyphicon").attr("class","glyphicon glyphicon-refresh");
+					$("#statusBack").find("#msgBack").text("注册中...");
+			    },
+			    success:function(data,textStatus,jqXHR){
+			        $("#statusBack").modal('show');
+			        $("#statusBack").find("#statusBackModalLabel").text("注册");
+					$("#statusBack").find(".glyphicon").attr("class","glyphicon glyphicon-ok");
+					$("#statusBack").find("#msgBack").text("注册成功！");
+			    },
+			    error:function(xhr,textStatus){
+			    	$("#statusBack").modal('show');
+			        $("#statusBack").find("#statusBackModalLabel").text("注册");
+					$("#statusBack").find(".glyphicon").attr("class","glyphicon glyphicon-remove");
+					$("#statusBack").find("#msgBack").text("注册失败！");
+			    },
+			    complete:function(){
+			    	;
+			    }
+			});
+
+			alert(backInfo);
 		}
 	});
 }
@@ -135,7 +183,11 @@ function signUp(){
 		var status = checkSignUp($("#su-username"),$("#su-password"));
 
 		if( status ){
-			alert("登录成功！")
+			$("#signUpModal").modal('hide');
+			$("#statusBack").modal('show');
+			$("#statusBack").find("#statusBackModalLabel").text("登录");
+			$("#statusBack").find(".glyphicon").attr("class","glyphicon glyphicon-refresh");
+			$("#statusBack").find("#msgBack").text("登录中...");
 		}
 	});
 }
