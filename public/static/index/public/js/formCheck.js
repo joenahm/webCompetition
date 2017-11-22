@@ -140,22 +140,23 @@ function signIn(){
 
 			$.ajax({
 				url:'/p/webCompetition/public/index.php/index/index/datareturn',
-			    type:'POST', //GET
-			    async:true,    //或false,是否异步
+			    type:'POST',
+			    async:true,
 			    data:{
 			        phone:info['phone'],
 			        username:info['username'],
 			        password:info['password'],
 			        usertype:info['usertype']
 			    },
-			    dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+			    dataType:'json',
 			    success:function(data){
-			    	alert(data.status);
 			        $("#statusBack").modal('show');
 			        $("#statusBack").find("#statusBackModalLabel").text("注册");
 					$("#statusBack").find(".glyphicon").attr("class","glyphicon glyphicon-ok");
 					$("#statusBack").find("#msgBack").text("注册成功！");
-			    },
+					$("#signInUpPanel").hide(100);
+					$("#userToggle").show(200);
+			    }
 			});
 		}
 	});
