@@ -6,7 +6,8 @@ class Index extends Controller
    
     public function index()
     {
-      
+        $user = '李盈庆';
+        $this->assign('user',$user);
    
           return $this->fetch();
 
@@ -14,8 +15,7 @@ class Index extends Controller
     public function datareturn()
     {  
             
-            session_start();
-             $username = $_SESSION['username'] = $_POST['username'];
+        
              $this->assign('user',$username);
             if(!empty($_POST)){
                die(json_encode(array('status'=>'ture','msg'=>'success')));
@@ -25,6 +25,7 @@ class Index extends Controller
          
     
     }
+    
 
     
     //接收上传的图片，移动目录以及重组路径存入数据库

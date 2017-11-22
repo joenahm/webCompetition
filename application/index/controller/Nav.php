@@ -7,7 +7,7 @@ class Nav extends Controller
     public function nav()
     {
          session_start();
-          $this->assign('user',$_SESSION['username']);
+          $this->assign('user','李盈庆');
           return $this->fetch('common/nav');
 
     }
