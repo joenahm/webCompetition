@@ -139,7 +139,7 @@ function signIn(){
 			$("#signInModal").modal('hide');
 
 			$.ajax({
-				url:'datareturn',
+				url:'/p/webCompetition/public/index.php/index/index/datareturn',
 			    type:'POST', //GET
 			    async:true,    //或false,是否异步
 			    data:{
@@ -156,10 +156,7 @@ function signIn(){
 					$("#statusBack").find(".glyphicon").attr("class","glyphicon glyphicon-ok");
 					$("#statusBack").find("#msgBack").text("注册成功！");
 			    },
-   
 			});
-			 
-
 		}
 	});
 	
