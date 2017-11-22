@@ -16,7 +16,7 @@ class Index extends Controller
     {  
             
         
-             $this->assign('user',$username);
+            
             if(!empty($_POST)){
                die(json_encode(array('status'=>'ture','msg'=>'success')));
             }else{
