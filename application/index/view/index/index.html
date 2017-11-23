@@ -31,16 +31,11 @@
 					</div>
 					<div class="panel-body">
 						<div class="col-md-6">
-							<li class="jobInfo"><a href="detail.php">2017.11.10 那哪那谁谁谁发的兼职</a> <span class="label label-success">New !</span> <span class="pull-right publisher"><a href="">xxx</a> 发布于2017.11.15</span></li><hr>
-							<li class="jobInfo"><a href="#">2017.11.10 那哪那谁谁谁发的兼职</a> <span class="label label-success">New !</span> <span class="pull-right publisher"><a href="">xxx</a> 发布于2017.11.15</span></li><hr>
-							<li class="jobInfo"><a href="#">2017.11.10 那哪那谁谁谁发的兼职</a> <span class="label label-success">New !</span> <span class="pull-right publisher"><a href="">xxx</a> 发布于2017.11.15</span></li><hr>
-							<li class="jobInfo"><a href="#">2017.11.10 那哪那谁谁谁发的兼职</a> <span class="label label-success">New !</span> <span class="pull-right publisher"><a href="">xxx</a> 发布于2017.11.15</span></li>
+							{volist name='information' id='vo'}
+							<li class="jobInfo"><a href="detail.php">{$vo.title}</a> <span class="label label-success">New !</span>{$vo.username} <span class="pull-right publisher"><a href="">{$vo.time}</a> </span></li><hr>
+						{/volist}
 						</div>
 						<div class="col-md-6">
-							<li class="jobInfo"><a href="#">2017.11.10 那哪那谁谁谁发的兼职</a> <span class="label label-success">New !</span> <span class="pull-right publisher"><a href="">xxx</a> 发布于2017.11.15</span></li><hr>
-							<li class="jobInfo"><a href="#">2017.11.10 那哪那谁谁谁发的兼职</a> <span class="label label-success">New !</span> <span class="pull-right publisher"><a href="">xxx</a> 发布于2017.11.15</span></li><hr>
-							<li class="jobInfo"><a href="#">2017.11.10 那哪那谁谁谁发的兼职</a> <span class="label label-success">New !</span> <span class="pull-right publisher"><a href="">xxx</a> 发布于2017.11.15</span></li><hr>
-							<li class="jobInfo"><a href="#">2017.11.10 那哪那谁谁谁发的兼职</a> <span class="label label-success">New !</span> <span class="pull-right publisher"><a href="">xxx</a> 发布于2017.11.15</span></li>
 						</div>
 					</div>
 				</div>
@@ -54,68 +49,18 @@
 					</div>
 					<div class="panel-body">
 						<div class="row">
+						{volist name="gb" id='gb'}
 							<div class="col-md-4 merchant">
 								<div class="thumbnail">
-									<img src="" alt="商家">
+									<img src="__PHOTO__/{$gb.photo}" alt="商家">
 									<div class="caption text-center">
-										<h3>商家1 <span class="label label-warning" data-toggle="tooltip" data-placement="right" title="此积分代表商家的信用等级">10</span></h3>
-										<p>商家介绍</p>
+										<h3>{$gb.buser} <span class="label label-warning" data-toggle="tooltip" data-placement="right" title="此积分代表商家的信用等级">{$gb.credit}</span></h3>
+										<p>{$gb.introduce}</p>
 										<p><a href="#" class="btn btn-default center-block" role="button">查看详情</a></p>
 									</div>
 								</div>
 							</div>
-							<div class="col-md-4 merchant">
-								<div class="thumbnail">
-									<img src="" alt="商家">
-									<div class="caption text-center">
-										<h3>商家2</h3>
-										<p>商家介绍</p>
-										<p><a href="#" class="btn btn-default center-block" role="button">查看详情</a></p>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-4 merchant">
-								<div class="thumbnail">
-									<img src="" alt="商家">
-									<div class="caption text-center">
-										<h3>商家3</h3>
-										<p>商家介绍</p>
-										<p><a href="#" class="btn btn-default center-block" role="button">查看详情</a></p>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-4 merchant">
-								<div class="thumbnail">
-									<img src="" alt="商家">
-									<div class="caption text-center">
-										<h3>骚的一批</h3>
-										<p>商家介绍</p>
-										<p><a href="#" class="btn btn-default center-block" role="button">查看详情</a></p>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-4 merchant">
-								<div class="thumbnail">
-									<img src="" alt="商家">
-									<div class="caption text-center">
-										<h3>骚的一批</h3>
-										<p>商家介绍</p>
-										<p><a href="#" class="btn btn-default center-block" role="button">查看详情</a></p>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-4 merchant">
-								<div class="thumbnail">
-									<img src="" alt="商家">
-									<div class="caption text-center">
-										<h3>骚的一批</h3>
-										<p>商家介绍</p>
-										<p><a href="#" class="btn btn-default center-block" role="button">查看详情</a></p>
-									</div>
-								</div>
-							</div>
+						{/volist}
 						</div>
 					</div>
 				</div>

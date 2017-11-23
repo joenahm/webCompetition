@@ -4,7 +4,11 @@ use think\Controller;
 class Hall extends Controller{
 
   public function index(){
+        //获取头部信息
+      $event = controller('nav');
+      $event->nav();
       //获取列表名
+      
       $this->cate();
       //获取父级目录下面的子目录
       $this->cateson();
