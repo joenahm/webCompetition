@@ -150,6 +150,7 @@ function signIn(){
 			    },
 			    dataType:'json',
 			    success:function(data){
+			    	alert(data.status);
 			        $("#statusBack").modal('show');
 			        $("#statusBack").find("#statusBackModalLabel").text("注册");
 					$("#statusBack").find(".glyphicon").attr("class","glyphicon glyphicon-ok");

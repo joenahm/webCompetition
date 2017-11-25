@@ -28,12 +28,26 @@ class Index extends Controller
                         db('student')->insert($data);
                     }
                  Session::set('username',$data['username']);
-               die(json_encode(array('status'=>'1')));
+               
 
             }else{
-                die(json_encode(array('status'=>'-1')));
+                Session::set('username',null);
             }
+            $backinfo = self::infoback(session('username'));
+           die(json_encode($backinfo));
     }
+//session调用函数
+private function infoback($sessionInfo){
+    $backinfo = array();
+    if($sessionInfo){
+        $backinfo['status'] = true;
+        $backinfo['username'] = $sessionInfo;
+    }else{
+        $backinfo['status'] = false;
+    }
+    return $backinfo;
+    
+}    
 
 //兼职信息
     private function information(){
