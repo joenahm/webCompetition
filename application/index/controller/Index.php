@@ -10,13 +10,12 @@ class Index extends Controller
         $event = controller('nav');
         $event->nav(); 
         self::gb();
-        self::information();
-          return $this->fetch();
+        $this->information();
+        return $this->fetch();
     }
     
     public function datareturn()
-    {  
-        
+    {        
             if(!empty($_POST)){
                $data =[
                    'username'=>$_REQUEST['username'],
@@ -34,26 +33,10 @@ class Index extends Controller
             }else{
                 die(json_encode(array('status'=>'-1')));
             }
-
     }
 
-
-    
-    //接收上传的图片，移动目录以及重组路径存入数据库
- public function photo(){  
-//     $photo = request()->file('image'); 
-//      $info = $photo->validate(['rootPath'=>'public','savePath'])->move();
-//      if($info){
-//          $img_url = $info['rootPath'].$info['savePath'];
-//          db('business')->insert($img_url);  
-//      }
-
-    
-    
-}  
-
 //兼职信息
-    public function information(){
+    private function information(){
 
         $information = db('information')->order('time desc')->limit(0,5)->select();
          $this->assign('information',$information);
