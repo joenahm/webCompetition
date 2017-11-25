@@ -31,4 +31,7 @@ $(function(){
 	}
 
 	$('[data-toggle="tooltip"]').tooltip();
+
+	//刷新登录状态
+	refreshUserMode();
 });	

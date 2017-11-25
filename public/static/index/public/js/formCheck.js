@@ -96,6 +96,52 @@ function checkSignUp(username, password){
 	return status;
 }
 
+function changeUserMode(dataBack){
+	if( dataBack.status ){
+		$("#username-stage").html(dataBack.username);
+		$("#signInUpPanel").hide(100);
+		$("#userToggle").show(200);
+	}else{
+		$("#username-stage").html("");
+		$("#signInUpPanel").show();
+		$("#userToggle").hide(100);
+	}
+}
+
+function getUserMode(userInfo){
+	$.ajax({
+		url:'1.php',
+	    type:'POST',
+	    async:true,
+	    data:{
+	        username:userInfo['username'],
+	        password:userInfo['password']
+	    },
+	    dataType:'json',
+	    success:function(data){
+			changeUserMode(data);
+	    },
+	    error:function(){
+	    	$("#statusBack").modal('show');
+	        $("#statusBack").find("#statusBackModalLabel").text("登录");
+			$("#statusBack").find(".glyphicon").attr("class","glyphicon glyphicon-remove");
+			$("#statusBack").find("#msgBack").text("登录失败！");
+	    }
+	});
+}
+
+function refreshUserMode(){
+	$.ajax({
+		url:'2.php',
+	    type:'POST',
+	    async:true,
+	    dataType:'json',
+	    success:function(data){
+			changeUserMode(data);
+	    }
+	});
+}
+
 function signIn(){
 	$("#phone").blur(function(){
 		checkPhone($("#phone"));
@@ -150,13 +196,17 @@ function signIn(){
 			    },
 			    dataType:'json',
 			    success:function(data){
-			    	alert(data.status);
 			        $("#statusBack").modal('show');
 			        $("#statusBack").find("#statusBackModalLabel").text("注册");
 					$("#statusBack").find(".glyphicon").attr("class","glyphicon glyphicon-ok");
 					$("#statusBack").find("#msgBack").text("注册成功！");
-					$("#signInUpPanel").hide(100);
-					$("#userToggle").show(200);
+					changeUserMode(data);
+			    },
+			    error:function(){
+			    	$("#statusBack").modal('show');
+			        $("#statusBack").find("#statusBackModalLabel").text("注册");
+					$("#statusBack").find(".glyphicon").attr("class","glyphicon glyphicon-remove");
+					$("#statusBack").find("#msgBack").text("注册失败！");
 			    }
 			});
 		}
@@ -169,17 +219,29 @@ function signUp(){
 		var status = checkSignUp($("#su-username"),$("#su-password"));
 
 		if( status ){
+			var info = [];
+			info['username'] = $("#su-username").val();
+			info['password'] = $("#su-password").val();
+
 			$("#signUpModal").modal('hide');
-			$("#statusBack").modal('show');
-			$("#statusBack").find("#statusBackModalLabel").text("登录");
-			$("#statusBack").find(".glyphicon").attr("class","glyphicon glyphicon-refresh");
-			$("#statusBack").find("#msgBack").text("登录中...");
+			getUserMode(info);
 		}
+	});
+}
+
+function logOut(){
+	$("#logOut").click(function(){
+		var outInfo = [];
+		outInfo['username'] = null;
+		outInfo['password'] = null;
+		getUserMode(outInfo);
+		refreshUserMode();
 	});
 }
 
 $(function(){
 	signIn();
 	signUp();
+	logOut();
 });
 /* 表单验证要求DOM结构丝毫不得改变 */
