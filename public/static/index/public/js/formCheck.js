@@ -110,7 +110,7 @@ function changeUserMode(dataBack){
 
 function getUserMode(userInfo){
 	$.ajax({
-		url:'1.php',
+		url:'/p/webCompetition/public/index.php/index/index/login',
 	    type:'POST',
 	    async:true,
 	    data:{
@@ -132,7 +132,7 @@ function getUserMode(userInfo){
 
 function refreshUserMode(){
 	$.ajax({
-		url:'2.php',
+		url:'/p/webCompetition/public/index.php/index/index/refreshUserMode',
 	    type:'POST',
 	    async:true,
 	    dataType:'json',
