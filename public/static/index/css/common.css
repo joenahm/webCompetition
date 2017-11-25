@@ -20,7 +20,7 @@ body {
     border-radius: 40px; }
 
 #banner {
-  background-image:images/logo.jpg ; }
+  padding: 0; }
 
 .panel-default > .panel-heading {
   background-color: #00c0b9;

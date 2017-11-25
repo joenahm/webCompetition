@@ -12,16 +12,62 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="jumbotron" id="banner">
-					<h1 style="color: #555">欢迎来到兼了个职！</h1>
-					<p>这是一个方便商家，面向学生的兼职信息发布检索平台</p>
-					<p><b>如果你是商家</b>：你可以在这里方便快捷地找到满足你要求的、优秀的学生兼职资源</p>
-					<p><b>如果你是学生</b>：你可以在这里方便快捷地找到适合你特长的、薪资合理的兼职信息</p>
-					<p>
-						<a class="btn btn-success btn-lg" href="#" role="button">我是商家</a>
-						<a class="btn btn-info btn-lg" href="#" role="button">我是学生</a>
-					</p>
+					<img src="static/index/images/banner3.jpg" alt="" width="100%">
+					<img style="display: none;" src="static/index/images/banner2.jpg" alt="" width="100%">
+					<img style="display: none;" src="static/index/images/banner1.jpg" alt="" width="100%">	
+					<div></div>
 				</div>
 			</div>
+			<style>
+				#banner{
+					padding: 0;
+					height: 390px;
+					background: #f5f5f5;
+				}
+				#banner img{
+					position: relative;
+					top: 0;
+					border-radius: 5px;
+				}
+			</style>
+			<script>
+				var imgArr = $("#banner").children("img");
+				var interval = setInterval(banner,3000);
+				var outerIndex = 2;
+				function banner(){
+					for( var i = 0 ; i < imgArr.length ; i++ ){
+						if( i!=outerIndex+1 ){
+							imgArr.eq(i).hide();
+						}
+						if( outerIndex == 2 ){
+							imgArr.eq(0).show();
+						}
+					}
+
+					if( outerIndex == -1 ){
+						// alert(2)
+						outerIndex = 2;
+					}
+
+					var former;
+					if( outerIndex != 2 ){
+						former = outerIndex+1;
+					}else{
+						former = 0;
+					}
+
+					imgArr.eq(outerIndex).css({"z-index":"100"});
+					imgArr.eq(former).slideUp(300);
+					imgArr.eq(outerIndex).slideDown(400);
+					outerIndex--;
+				}
+
+				$("#banner").hover(function(){
+					clearInterval(interval);
+				},function(){
+					interval = setInterval(banner,3000);
+				});
+			</script>
 		</div>
 		<div class="row">
 			<div class="col-md-12">
