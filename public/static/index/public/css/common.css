@@ -47,7 +47,8 @@ body {
 
 .jobInfo {
   margin: 10px;
-  list-style: none; }
+  list-style: none;
+}
 
 .publisher {
   color: #aaa; }
