@@ -7,7 +7,7 @@
 </head>
 <body>
 
-{include file="common/nav"}<!-- 包含导航 -->
+	{include file="common/nav"}<!-- 包含导航 -->
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
@@ -19,32 +19,32 @@
 				</div>
 			</div>
 			<style>
-				#banner{
-					padding: 0;
-					height: 390px;
-					background: #f5f5f5;
-				}
-				#banner img{
-					position: relative;
-					top: 0;
-					border-radius: 5px;
-				}
-			</style>
-			<script>
-				var imgArr = $("#banner").children("img");
-				var interval = setInterval(banner,3000);
-				var outerIndex = 2;
-				function banner(){
-					for( var i = 0 ; i < imgArr.length ; i++ ){
-						if( i!=outerIndex+1 ){
-							imgArr.eq(i).hide();
-						}
-						if( outerIndex == 2 ){
-							imgArr.eq(0).show();
-						}
+			#banner{
+				padding: 0;
+				height: 390px;
+				background: #f5f5f5;
+			}
+			#banner img{
+				position: relative;
+				top: 0;
+				border-radius: 5px;
+			}
+		</style>
+		<script>
+			var imgArr = $("#banner").children("img");
+			var interval = setInterval(banner,3000);
+			var outerIndex = 2;
+			function banner(){
+				for( var i = 0 ; i < imgArr.length ; i++ ){
+					if( i!=outerIndex+1 ){
+						imgArr.eq(i).hide();
 					}
+					if( outerIndex == 2 ){
+						imgArr.eq(0).show();
+					}
+				}
 
-					if( outerIndex == -1 ){
+				if( outerIndex == -1 ){
 						// alert(2)
 						outerIndex = 2;
 					}
@@ -73,20 +73,24 @@
 			<div class="col-md-12">
 				<div class="panel panel-default">
 					<div class="panel-heading panelHead">
-						<h3 style='font-size:25px;'class="panel-title">最新兼职信息</h3>
+						<h3 class="panel-title">最新兼职</h3>
 					</div>
-					<div class="panel-body">
+					<div class="panel-body latestJob">
 						<div class="col-md-6">
 							{volist name='information' id='vo'}
-							<li class="jobInfo"><a href="detail.php">{$vo.title}</a> <span style='font-size:15px;color:red;' class="label label-success">急</span>{$vo.username} <span class="pull-right publisher"><a href="">{$vo.time}</a> </span></li>
-							<li><span style='font-size:20px;padding-left:20px;color:red;'>{$vo.salary}</span></li>
-						{/volist}
+							<a href="detail.php">
+								<li class="jobInfo">
+									<span class="label label-danger"> 急</span> {$vo.title} <span class="pull-right publisher">{$vo.time}</span>
+									<span class="label label-warning">{$vo.salary}</span>
+								</li>
+							</a>
+							{/volist}
 						</div>
 						<div class="col-md-6">
-						{volist name='information' id='vo'}
-							<li class="jobInfo"><a href="detail.php">{$vo.title}</a> <span style='font-size:15px;color:red;' class="label label-success">急</span>{$vo.username} <span class="pull-right publisher"><a href="">{$vo.time}</a> </span></li>
-							<li><span style='font-size:20px;padding-left:20px;color:red;'>{$vo.salary}</span></li>
-						{/volist}
+							{volist name='information' id='vo'}
+							<li class="jobInfo"><a href="detail.php">{$vo.title}</a> <span class="label label-danger"> 急</span> {$vo.username} <span class="pull-right publisher">{$vo.time}</span></li>
+							<li><span >{$vo.salary}</span></li>
+							{/volist}
 						</div>
 					</div>
 				</div>
@@ -96,12 +100,11 @@
 			<div class="col-md-12">
 				<div class="panel panel-default">
 					<div class="panel-heading panelHead">
-						<h3 style='font-size:25px;'  class="panel-title">精品兼职</h3>
-						<h4 style='font-size:15px;'>甄选优质兼职商家 做兼职其实也很有趣</h4>
+						<h3 class="panel-title">精品兼职</h3>
 					</div>
 					<div class="panel-body">
 						<div class="row">
-						{volist name="gb" id='gb'}
+							{volist name="gb" id='gb'}
 							<div class="col-md-4 merchant">
 								<div class="thumbnail">
 									<img src="__PHOTO__/{$gb.photo}" alt="商家">
@@ -112,7 +115,7 @@
 									</div>
 								</div>
 							</div>
-						{/volist}
+							{/volist}
 						</div>
 					</div>
 				</div>

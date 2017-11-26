@@ -20,7 +20,9 @@ body {
     border-radius: 40px; }
 
 #banner {
-  padding: 0; }
+  background: #fc9;
+  padding: 0;
+  height: 420px; }
 
 .panel-default > .panel-heading {
   background-color: #00c0b9;
@@ -33,6 +35,9 @@ body {
   .btn-default:hover {
     background: #00a0a2;
     color: #eee; }
+
+.latestJob a:hover {
+  text-decoration: none; }
 
 .jobInfo {
   margin: 10px; }
