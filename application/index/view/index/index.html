@@ -12,9 +12,9 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="jumbotron" id="banner">
-					<img src="static/index/images/banner3.jpg" alt="" width="100%">
-					<img style="display: none;" src="static/index/images/banner2.jpg" alt="" width="100%">
-					<img style="display: none;" src="static/index/images/banner1.jpg" alt="" width="100%">	
+					<img src="__PUBLIC__/index/images/banner6.jpg" alt="" width="100%">
+					<img style="display: none;" src="__PUBLIC__/index/images/banner8.jpg" alt="" width="100%">
+					<img style="display: none;" src="__PUBLIC__/index/images/banner1.jpg" alt="" width="100%">	
 					<div></div>
 				</div>
 			</div>
@@ -73,15 +73,20 @@
 			<div class="col-md-12">
 				<div class="panel panel-default">
 					<div class="panel-heading panelHead">
-						<h3 class="panel-title">最新兼职信息</h3>
+						<h3 style='font-size:25px;'class="panel-title">最新兼职信息</h3>
 					</div>
 					<div class="panel-body">
 						<div class="col-md-6">
 							{volist name='information' id='vo'}
-							<li class="jobInfo"><a href="detail.php">{$vo.title}</a> <span class="label label-success">New !</span>{$vo.username} <span class="pull-right publisher"><a href="">{$vo.time}</a> </span></li><hr>
+							<li class="jobInfo"><a href="detail.php">{$vo.title}</a> <span style='font-size:15px;color:red;' class="label label-success">急</span>{$vo.username} <span class="pull-right publisher"><a href="">{$vo.time}</a> </span></li>
+							<li><span style='font-size:20px;padding-left:20px;color:red;'>{$vo.salary}</span></li>
 						{/volist}
 						</div>
 						<div class="col-md-6">
+						{volist name='information' id='vo'}
+							<li class="jobInfo"><a href="detail.php">{$vo.title}</a> <span style='font-size:15px;color:red;' class="label label-success">急</span>{$vo.username} <span class="pull-right publisher"><a href="">{$vo.time}</a> </span></li>
+							<li><span style='font-size:20px;padding-left:20px;color:red;'>{$vo.salary}</span></li>
+						{/volist}
 						</div>
 					</div>
 				</div>
@@ -91,7 +96,8 @@
 			<div class="col-md-12">
 				<div class="panel panel-default">
 					<div class="panel-heading panelHead">
-						<h3 class="panel-title">优秀商家推荐</h3>
+						<h3 style='font-size:25px;'  class="panel-title">精品兼职</h3>
+						<h4 style='font-size:15px;'>甄选优质兼职商家 做兼职其实也很有趣</h4>
 					</div>
 					<div class="panel-body">
 						<div class="row">

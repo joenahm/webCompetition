@@ -206,7 +206,7 @@ function signIn(){
 			    	$("#statusBack").modal('show');
 			        $("#statusBack").find("#statusBackModalLabel").text("注册");
 					$("#statusBack").find(".glyphicon").attr("class","glyphicon glyphicon-remove");
-					$("#statusBack").find("#msgBack").text("注册失败！");
+					$("#statusBack").find("#msgBack").text("注册失败，用户名已存在！");
 			    }
 			});
 		}
