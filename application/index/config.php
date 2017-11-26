@@ -6,10 +6,8 @@ return [
         '__PHOTO__' =>PHOTO,
         '__RAND__' =>'?v'.rand(),
     ],
-    'url_route_on'  =>  false,
 
     'auto_timestamp' => true,
     'app_debug'   => true,
-    'view_path'    => '',
 
 ];

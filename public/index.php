@@ -17,3 +17,4 @@ define('APP_PATH', __DIR__ . '/../application/');
 define('SITE_URL','/p/webCompetition');
 define('PHOTO', '/p/webCompetition/public/uploads');
 require __DIR__ . '/../thinkphp/start.php';
+
