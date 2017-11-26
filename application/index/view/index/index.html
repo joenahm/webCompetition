@@ -22,7 +22,6 @@
 			<style>
 			#banner{
 				padding: 0;
-				height: 390px;
 				background: #f5f5f5;
 			}
 			#banner img{
@@ -31,100 +30,148 @@
 				border-radius: 5px;
 			}
 		</style>
-		<script>
-			var imgArr = $("#banner").children("img");
-			var interval = setInterval(banner,3000);
-			var outerIndex = 2;
-			function banner(){
-				for( var i = 0 ; i < imgArr.length ; i++ ){
-					if( i!=outerIndex+1 ){
-						imgArr.eq(i).hide();
-					}
-					if( outerIndex == 2 ){
-						imgArr.eq(0).show();
-					}
-				}
-
-				if( outerIndex == -1 ){
-						// alert(2)
-						outerIndex = 2;
-					}
-
-					var former;
-					if( outerIndex != 2 ){
-						former = outerIndex+1;
-					}else{
-						former = 0;
-					}
-
-					imgArr.eq(outerIndex).css({"z-index":"100"});
-					imgArr.eq(former).slideUp(300);
-					imgArr.eq(outerIndex).slideDown(400);
-					outerIndex--;
-				}
-
-				$("#banner").hover(function(){
-					clearInterval(interval);
-				},function(){
-					interval = setInterval(banner,3000);
-				});
-			</script>
-		</div>
-		<div class="row">
-			<div class="col-md-12">
-				<div class="panel panel-default">
-					<div class="panel-heading panelHead">
-						<h3 class="panel-title">最新兼职</h3>
-					</div>
-					<div class="panel-body latestJob">
-						<div class="col-md-6">
-							{volist name='information' id='vo'}
-							<a href="detail.php">
-								<li class="jobInfo">
-									<span class="label label-danger"> 急</span> {$vo.title} <span class="pull-right publisher">{$vo.time}</span>
-									<span class="label label-warning">{$vo.salary}</span>
-								</li>
-							</a>
-							{/volist}
-						</div>
-						<div class="col-md-6">
-							{volist name='information' id='vo'}
-							<li class="jobInfo"><a href="detail.php">{$vo.title}</a> <span class="label label-danger"> 急</span> {$vo.username} <span class="pull-right publisher">{$vo.time}</span></li>
-							<li><span >{$vo.salary}</span></li>
-							{/volist}
-						</div>
-					</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="latestJob panel panel-default">
+				<div class="panel-heading panelHead">
+					<h3 class="panel-title">最新兼职</h3>
 				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12">
-				<div class="panel panel-default">
-					<div class="panel-heading panelHead">
-						<h3 class="panel-title">精品兼职</h3>
+				<div class="panel-body">
+					<div class="col-md-6">
+						{volist name='information' id='vo'}
+						<a class="jobInfoLink" href="detail.php">
+							<li class="jobInfo">
+								<span class="label label-danger"> 急</span> <span class="jobTitle">{$vo.title}</span>
+							</li>
+							<li class="jobInfo merchant text-right">
+								【{$vo.username}】
+							</li>
+							<li class="jobInfo">
+								<span class="salary label label-warning">{$vo.salary}</span>
+								<span class="publisher pull-right">{$vo.time}</span>
+							</li>
+							<hr>
+						</a>
+						{/volist}
 					</div>
-					<div class="panel-body">
-						<div class="row">
-							{volist name="gb" id='gb'}
-							<div class="col-md-4 merchant">
-								<div class="thumbnail">
-									<img src="__PHOTO__/{$gb.photo}" alt="商家">
-									<div class="caption text-center">
-										<h3>{$gb.buser} <span class="label label-warning" data-toggle="tooltip" data-placement="right" title="此积分代表商家的信用等级">{$gb.credit}</span></h3>
-										<p>{$gb.introduce}</p>
-										<p><a href="#" class="btn btn-default center-block" role="button">查看详情</a></p>
-									</div>
-								</div>
-							</div>
-							{/volist}
-						</div>
+					<div class="col-md-6">
+						{volist name='information' id='vo'}
+						<a class="jobInfoLink" href="detail.php">
+							<li class="jobInfo">
+								<span class="label label-danger"> 急</span> <span class="jobTitle">{$vo.title}</span>
+							</li>
+							<li class="jobInfo merchant text-right">
+								【{$vo.username}】
+							</li>
+							<li class="jobInfo">
+								<span class="salary label label-warning">{$vo.salary}</span>
+								<span class="publisher pull-right">{$vo.time}</span>
+							</li>
+							<hr>
+						</a>
+						{/volist}
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	{include file="common/footer"}	<!-- 包含页脚和返回顶部按钮 -->
+	<style>
+	.jobTitle{
+		font-size: 14px;
+		font-weight: bold;
+	}
+	.salary{
+		font-size: 14px;
+	}
+	.jobInfo{
+		padding: 0;
+		margin-top: 10px;
+	}
+	.merchant{
+		color: #222;
+		font-weight: bold;
+	}
+	.jobInfoLink{
+		display: block;
+		/*background: red;*/
+		padding-top: 10px;
+		padding-bottom: 5px;
+	}
+	.jobInfoLink:hover{
+		text-decoration: none;
+		background: #eee;
+
+	}	
+</style>
+<div class="row">
+	<div class="col-md-12">
+		<div class="panel panel-default">
+			<div class="panel-heading panelHead">
+				<h3 class="panel-title">精品兼职</h3>
+			</div>
+			<div class="panel-body">
+				<div class="row">
+					{volist name="gb" id='gb'}
+					<div class="col-md-4 merchant">
+						<div class="thumbnail">
+							<img src="__PHOTO__/{$gb.photo}" alt="商家">
+							<div class="caption text-center">
+								<h3>{$gb.buser} <span class="label label-warning" data-toggle="tooltip" data-placement="right" title="此积分代表商家的信用等级">{$gb.credit}</span></h3>
+								<p>{$gb.introduce}</p>
+								<p><a href="#" class="btn btn-default center-block" role="button">查看详情</a></p>
+							</div>
+						</div>
+					</div>
+					{/volist}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+{include file="common/footer"}	<!-- 包含页脚和返回顶部按钮 -->
 </body>
+<script>
+	var imgArr = $("#banner").children("img");
+	var interval = setInterval(banner,3000);
+	var outerIndex = 2;
+	function banner(){
+		for( var i = 0 ; i < imgArr.length ; i++ ){
+			if( i!=outerIndex+1 ){
+				imgArr.eq(i).hide();
+			}
+			if( outerIndex == 2 ){
+				imgArr.eq(0).show();
+			}
+		}
+
+		if( outerIndex == -1 ){
+			// alert(2)
+			outerIndex = 2;
+		}
+
+		var former;
+		if( outerIndex != 2 ){
+			former = outerIndex+1;
+		}else{
+			former = 0;
+		}
+
+		imgArr.eq(outerIndex).css({"z-index":"100"});
+		imgArr.eq(former).slideUp(300);
+		imgArr.eq(outerIndex).slideDown(400);
+		outerIndex--;
+	}
+
+	$("#banner").hover(function(){
+		clearInterval(interval);
+	},function(){
+		interval = setInterval(banner,3000);
+	});
+
+	$("#banner").height($("#banner").children("img").eq(0).height());
+</script>
 {include file='common/popModal'}<!-- 包含弹窗 -->
 <script src=<?php echo '"__PUBLIC__/index/public/js/common.js?v'.rand().'"'; ?>></script>
 <!-- src前边加上__PUBLIC__/index/ -->
