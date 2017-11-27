@@ -81,9 +81,9 @@ function checkUsertype(usertypeObj){
 }
 
 function checkSignUp(phone, username, password, usertype){
-	var status = checkPhone(phone) 
-	&& checkUsername(username) 
-	&& checkPassword(password) 
+	var status = checkPhone(phone)
+	&& checkUsername(username)
+	&& checkPassword(password)
 	&& checkUsertype(usertype);
 
 	return status;
@@ -184,7 +184,7 @@ function signUp(){
 					info['usertype'] = itemObj.val();
 				}
 			}
-			
+
 			$("#signUpModal").modal('hide');
 
 			$.ajax({
@@ -214,7 +214,7 @@ function signUp(){
 			});
 		}
 	});
-	
+
 }
 
 function signIn(){
@@ -243,6 +243,7 @@ function logOut(){
 		var outInfo = [];
 		outInfo['username'] = null;
 		outInfo['password'] = null;
+		outInfo['usertype'] = null;
 		getUserMode(outInfo);
 		refreshUserMode();
 	});
