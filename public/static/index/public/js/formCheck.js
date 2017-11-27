@@ -243,6 +243,7 @@ function logOut(){
 		var outInfo = [];
 		outInfo['username'] = null;
 		outInfo['password'] = null;
+		outInfo['usertype'] = null;
 		getUserMode(outInfo);
 		refreshUserMode();
 	});
