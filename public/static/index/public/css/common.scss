@@ -27,8 +27,8 @@ body{
 		background: #fff;
 	}
 	
-	#userToggle{
-		#user{
+	#userToggle,#merchantToggle{
+		.user{
 			margin: 5px 0 5px 0;
 			width: 40px;
 			height: 40px;
