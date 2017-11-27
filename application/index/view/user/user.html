@@ -4,11 +4,57 @@
 	{include file="common/head"}<!-- 包含head的内容 -->
 	<title>兼了个职-大学生兼职平台</title>
 	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="__PUBLIC__/index/public/css/user.css__RAND__">
 </head>
 <body>
 	{include file="common/nav"}<!-- 包含导航 -->
-{include file="common/footer"}	<!-- 包含页脚和返回顶部按钮 -->
 
+	<div class="container">
+		<div class="row">
+			<div class="col-md-2" style="padding: 5px">
+				<div class="itemlistUserpage panel panel-default" style="border:none;background: #333;">
+					<div class="panel-body" style="padding: 5px;">
+						<a href="#" class="btn btn-tag">动态</a>
+						<a href="#" class="btn btn-tag">消息</a>
+						<a href="#" class="btn btn-tag">我的资料</a>
+						<a href="#" class="btn btn-tag">我的兼职</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-10" style="padding: 5px">
+				<div class="itemlistUserpage panel panel-default" style="border-radius: 0">
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-1">
+								<img src="__PUBLIC__/index/public/images/userDefault.png" alt="">
+							</div>
+							<div class="col-md-11">
+								<h4>
+									<span id="username-userPage"><!-- 用户名 --></span><span class="label label-warning" id="usertype">学生</span>
+								</h4>
+							</div>
+						</div><hr>
+						<div class="row">
+							<div class="col-md-12">
+								<h4>最新动态</h4>
+								<div class="well">
+									<div class="panel panel-body">
+										<a href=""><h4>#兼职标题</h4></a><hr>
+										<p>#兼职的详细信息</p>
+										<div class="text-right text-success">
+											<span>#时间</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	{include file="common/footer"}	<!-- 包含页脚和返回顶部按钮 -->
 </body>
 <script src=<?php echo '"__PUBLIC__/index/public/js/common.js?v'.rand().'"'; ?>></script>
 {include file='common/popModal'}<!-- 包含弹窗 -->

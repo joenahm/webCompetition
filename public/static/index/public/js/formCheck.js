@@ -80,7 +80,7 @@ function checkUsertype(usertypeObj){
 	return status;
 }
 
-function checkSignIn(phone, username, password, usertype){
+function checkSignUp(phone, username, password, usertype){
 	var status = checkPhone(phone) 
 	&& checkUsername(username) 
 	&& checkPassword(password) 
@@ -89,9 +89,10 @@ function checkSignIn(phone, username, password, usertype){
 	return status;
 }
 
-function checkSignUp(username, password){
+function checkSignIn(username, password, usertype){
 	var status = checkUsername(username)
-	&& checkPassword(password);
+	&& checkPassword(password)
+	&& checkUsertype(usertype);
 
 	return status;
 }
@@ -99,6 +100,7 @@ function checkSignUp(username, password){
 function changeUserMode(dataBack){
 	if( dataBack.status ){
 		$("#username-stage").html(dataBack.username);
+		$("#username-userPage").html(dataBack.username+" ");
 		$("#signInUpPanel").hide(100);
 		$("#userToggle").show(200);
 	}else{
@@ -115,7 +117,8 @@ function getUserMode(userInfo){
 	    async:true,
 	    data:{
 	        username:userInfo['username'],
-	        password:userInfo['password']
+	        password:userInfo['password'],
+	        usertype:userInfo['usertype']
 	    },
 	    dataType:'json',
 	    success:function(data){
@@ -142,39 +145,39 @@ function refreshUserMode(){
 	});
 }
 
-function signIn(){
+function signUp(){
 	$("#phone").blur(function(){
 		checkPhone($("#phone"));
 	});
 
-	$("#si-username").keydown(function(){
+	$("#su-username").keydown(function(){
 		checkPhone($("#phone"));
 	});
 
-	$("#si-username").blur(function(){
+	$("#su-username").blur(function(){
 		checkPhone($("#phone"));
-		checkUsername($("#si-username"));
+		checkUsername($("#su-username"));
 	});
 
-	$("#si-password").keydown(function(){
+	$("#su-password").keydown(function(){
 		checkPhone($("#phone"));
-		checkUsername($("#si-username"));
+		checkUsername($("#su-username"));
 	});
 
-	$("#si-password").blur(function(){
+	$("#su-password").blur(function(){
 		checkPhone($("#phone"));
-		checkUsername($("#si-username"));
-		checkPassword($("#si-password"));
+		checkUsername($("#su-username"));
+		checkPassword($("#su-password"));
 	});
 
-	$("#signInBtn").click(function(){
-		var status = checkSignIn($("#phone"),$("#si-username"),$("#si-password"),$(".usertype"));
+	$("#signUpBtn").click(function(){
+		var status = checkSignUp($("#phone"),$("#su-username"),$("#su-password"),$(".usertype"));
 
 		if( status ){
 			var info = [];
 			info['phone'] = $("#phone").val();
-			info['username'] = $("#si-username").val();
-			info['password'] = $("#si-password").val();
+			info['username'] = $("#su-username").val();
+			info['password'] = $("#su-password").val();
 			for( var i = 0 ; i < $(".usertype").children("input").length ; i++ ){
 				var itemObj = $(".usertype").children("input").eq(i);
 				if( itemObj.is(":checked") ){
@@ -182,7 +185,7 @@ function signIn(){
 				}
 			}
 			
-			$("#signInModal").modal('hide');
+			$("#signUpModal").modal('hide');
 
 			$.ajax({
 				url:'/p/webCompetition/public/index.php/index/index/datareturn',
@@ -214,16 +217,22 @@ function signIn(){
 	
 }
 
-function signUp(){
-	$("#signUpBtn").click(function(){
-		var status = checkSignUp($("#su-username"),$("#su-password"));
+function signIn(){
+	$("#signInBtn").click(function(){
+		var status = checkSignIn($("#si-username"),$("#si-password"),$(".si-usertype"));
 
 		if( status ){
 			var info = [];
-			info['username'] = $("#su-username").val();
-			info['password'] = $("#su-password").val();
+			info['username'] = $("#si-username").val();
+			info['password'] = $("#si-password").val();
+			for( var i = 0 ; i < $(".si-usertype").children("input").length ; i++ ){
+				var itemObj = $(".si-usertype").children("input").eq(i);
+				if( itemObj.is(":checked") ){
+					info['usertype'] = itemObj.val();
+				}
+			}
 
-			$("#signUpModal").modal('hide');
+			$("#signInModal").modal('hide');
 			getUserMode(info);
 		}
 	});
@@ -240,8 +249,8 @@ function logOut(){
 }
 
 $(function(){
-	signIn();
 	signUp();
+	signIn();
 	logOut();
 });
 /* 表单验证要求DOM结构丝毫不得改变 */

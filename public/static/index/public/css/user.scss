@@ -1,0 +1,19 @@
+@media screen and (min-width:800px){
+	.itemlistUserpage{
+		height: 500px;
+	}	
+}
+.btn-tag{
+	width: 100%;
+	background: #333;
+	border-radius: 0;
+	height: 50px;
+	line-height: 40px;
+	color: #fff;
+
+	&:hover{
+		color: #00c0b9;
+		font-weight: bold;
+		background: #222;
+	}
+}

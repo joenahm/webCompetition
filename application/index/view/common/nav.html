@@ -9,7 +9,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="{:url('index/index')}"><img src="__PUBLIC__/index/public/images/logo.png?v1"  height="100%"></a>
+				<a class="navbar-brand" href="{:url('index/index')}"><img src="__PUBLIC__/index/public/images/logo.png"  height="100%"></a>
 				<!-- src前边加上__PUBLIC__/index/ -->
 			</div>
 
@@ -20,12 +20,17 @@
 					<li><a href="http://localhost/p/webCompetition/public/index.php/index/hall/index.html">兼职大厅</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right" id="signInUpPanel">
-					<li><a href="#" id="signIn" data-toggle="modal" data-target="#signInModal">注册</a></li>
-					<li><a href="#" id="signUp" data-toggle="modal" data-target="#signUpModal">登录</a></li>
+					<li><a href="#" id="signUp" data-toggle="modal" data-target="#signUpModal">注册</a></li>
+					<li><a href="#" id="signIn" data-toggle="modal" data-target="#signInModal">登录</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right" id="userToggle" style="display:none;">
 					<li class="dropdown">
 						<a href="#" id="user" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
+						<style>
+							#user{
+								background-image: url(); 
+							}
+						</style>
 						<ul class="dropdown-menu">
 							<li><a href="http://localhost/p/webCompetition/public/index.php/index/user/index.html" id="username-stage">用户名</a></li>
 							<li><a href="#">消息</a></li>
