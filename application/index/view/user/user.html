@@ -14,23 +14,23 @@
 			<div class="col-md-2" style="padding: 5px">
 				<div class="itemlistUserpage panel panel-default" style="border:none;background: #333;">
 					<div class="panel-body" style="padding: 5px;">
-						<a href="#" class="btn btn-tag">动态</a>
-						<a href="#" class="btn btn-tag">消息</a>
-						<a href="#" class="btn btn-tag">我的资料</a>
-						<a href="#" class="btn btn-tag">我的兼职</a>
+						<a href="#" class="btn btn-tag" data="DongTai">动态</a>
+						<a href="#" class="btn btn-tag" data="">消息</a>
+						<a href="#" class="btn btn-tag" data="ZiLiao">我的资料</a>
+						<a href="#" class="btn btn-tag" data="JianZhi">我的兼职</a>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-10" style="padding: 5px">
 				<div class="itemlistUserpage panel panel-default" style="border-radius: 0">
-					<div class="panel-body">
+					<div id="DongTai" class="userItem panel-body">
 						<div class="row">
 							<div class="col-md-1">
 								<img src="__PUBLIC__/index/public/images/userDefault.png" alt="">
 							</div>
 							<div class="col-md-11">
 								<h4>
-									<span id="username-userPage"><!-- 用户名 --></span><span class="label label-warning" id="usertype">学生</span>
+									<span id="username-userPage">#用户名</span>&nbsp;<span class="label label-warning" id="usertype">#用户类型</span>
 								</h4>
 							</div>
 						</div><hr>
@@ -49,13 +49,116 @@
 							</div>
 						</div>
 					</div>
+					<div id="ZiLiao" class="userItem panel-body" style="display: none;">
+						<div class="row">
+							<div class="col-md-1"></div>
+							<div class="col-md-3 text-center">
+								<h5>我的头像：</h5>
+								<div class="well"><img src="__PUBLIC__/index/public/images/userDefault.png" alt=""></div>
+							</div>
+							<div class="col-md-1"></div>
+							<div class="col-md-5"><br>
+								<h4>姓名：</h4>
+								<span class="bigInfo">#用户名</span>
+								<br>
+								<h4>性别：</h4>
+								<span  class="bigInfo">#性别</span><br>
+								<h4>联系电话：</h4>
+								<span class="bigInfo phone">10000000000</span>
+								<style>
+								h4{
+									display: inline-block;
+								}
+								.bigInfo{
+									font-size: 18px;
+								}
+								.phone{
+									font-weight: bold;
+									color: orange;
+								}
+							</style>
+						</div>
+						<div class="col-md-2">
+							<button class="btn btn-default">修改信息</button>
+							<button class="btn btn-danger">修改密码</button>
+						</div>
+					</div>
+					<hr>
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-10">
+							<h5>个人简介：</h5>
+							<div class="well">
+								#这里放个人的简介<br>
+								----------------------------
+							</div>
+						</div>
+						<div class="col-md-1"></div>
+					</div>
+				</div>
+				<div id="JianZhi" class="userItem panel-body" style="display: none;">
+					<div class="row">
+						<div class="col-md-12">
+							<h4>我的兼职记录：</h4>
+						</div>
+					</div><br>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="well">
+								<div class="panel">
+									<div class="panel-body">
+										<a href="detail.php" class="btn btn-link"><h4>这是第一条兼职信息</h4></a><div class="text-right publisher">兼职时间：2017.11.15</div>
+										<hr>
+										<a href="" class="btn btn-link"><h4>这是第er条兼职信息</h4></a><div class="text-right publisher">兼职时间：2017.11.15</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<nav aria-label="Page navigation">
+								<ul class="pagination">
+									<li>
+										<a href="#" aria-label="Previous">
+											<span aria-hidden="true">&laquo;</span>
+										</a>
+									</li>
+									<li><a href="#">1</a></li>
+									<li>
+										<a href="#" aria-label="Next">
+											<span aria-hidden="true">&raquo;</span>
+										</a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
 
-	{include file="common/footer"}	<!-- 包含页脚和返回顶部按钮 -->
+{include file="common/footer"}	<!-- 包含页脚和返回顶部按钮 -->
 </body>
+<script>
+	function binding(btn, data){
+		btn.click(function(){
+			for( var j =  0 ; j < $(".userItem").length ; j++ ){
+				if( $(".userItem").eq(j).attr("id") != data ){
+					$(".userItem").eq(j).hide();
+				}else{
+					$(".userItem").eq(j).show();
+				}
+			}
+		});
+	}
+	var btns = $(".btn-tag");
+	for( var i = 0 ; i < btns.length ; i++ ){
+		binding(btns.eq(i),btns.eq(i).attr("data"));
+	}
+</script>
 <script src=<?php echo '"__PUBLIC__/index/public/js/common.js?v'.rand().'"'; ?>></script>
 {include file='common/popModal'}<!-- 包含弹窗 -->
 </html>
