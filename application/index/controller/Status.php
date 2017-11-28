@@ -10,10 +10,10 @@ class Status extends Controller
         $postNew = controller('PostNew');
         $postNew->postNew();
 //获取传过来的时间戳
-        $timestamp = request()->get();
-        $status = db('information')->limit(0,1)->find();
+        $timestamp = request()->get('id');
+        $status = db('information')->where('timestamp',$timestamp)->find();
         $this->assign('status',$status);
-        $statusUser =db('business')->limit(0,1)->find();
+        $statusUser =db('business')->where('username',$status['username'])->find();
         $this->assign('statusUser',$statusUser);
         return $this->fetch('');
     }
