@@ -11,6 +11,8 @@ class Index extends Controller
     {
         $event = controller('nav');
         $event->nav();
+        $postNew = controller('PostNew');
+        $postNew->postNew();
         self::gb();
         $this->information();
         return $this->fetch();
@@ -111,7 +113,7 @@ public function refreshUserMode(){
 //兼职信息
     private function information(){
 
-        $information = db('information')->order('time desc')->limit(0,5)->select();
+        $information = db('information')->order('timestamp desc')->limit(0,5)->select();
          $this->assign('information',$information);
     }
 //優秀商家

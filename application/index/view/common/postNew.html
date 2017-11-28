@@ -52,10 +52,9 @@
 							</style>
 						</a>
 						<ul class="dropdown-menu col-sm-2" aria-labelledby="sort">
-							<li><a href="#">Action</a></li>
-							<li><a href="#">Another action</a></li>
-							<li><a href="#">Something else here</a></li>
-							<li><a href="#">Separated link</a></li>
+							{volist name='cate' id='ct'}
+							<li><a href="#">{$ct.parentname}</a></li>
+							{/volist}
 						</ul>
 						</div>
 					</div>
