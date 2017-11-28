@@ -97,7 +97,7 @@ function checkSignIn(username, password, usertype){
 	return status;
 }
 
-function changeUserMode(dataBack){
+function changeUserMode(dataBack, isLogin){
 	if( dataBack.status ){
 		$(".username-stage").eq(0).html(dataBack.username);
 		$("#signInUpPanel").hide(100);
@@ -110,10 +110,16 @@ function changeUserMode(dataBack){
 		$("#username-stage").html("");
 		$("#signInUpPanel").show();
 		$("#userToggle").hide(100);
+		if( isLogin ){
+			$("#statusBack").modal('show');
+	        $("#statusBack").find("#statusBackModalLabel").text("登录");
+			$("#statusBack").find(".glyphicon").attr("class","glyphicon glyphicon-remove");
+			$("#statusBack").find("#msgBack").text("登录失败！");
+		}
 	}
 }
 
-function getUserMode(userInfo){
+function getUserMode(userInfo, isLogin){
 	$.ajax({
 		url:'/p/webCompetition/public/index.php/index/index/login',
 	    type:'POST',
@@ -125,7 +131,7 @@ function getUserMode(userInfo){
 	    },
 	    dataType:'json',
 	    success:function(data){
-			changeUserMode(data);
+			changeUserMode(data,isLogin);
 	    },
 	    error:function(){
 	    	$("#statusBack").modal('show');
@@ -143,7 +149,7 @@ function refreshUserMode(){
 	    async:true,
 	    dataType:'json',
 	    success:function(data){
-			changeUserMode(data);
+			changeUserMode(data,false);
 	    }
 	});
 }
@@ -206,7 +212,7 @@ function signUp(){
 			        $("#statusBack").find("#statusBackModalLabel").text("注册");
 					$("#statusBack").find(".glyphicon").attr("class","glyphicon glyphicon-ok");
 					$("#statusBack").find("#msgBack").text("注册成功！");
-					changeUserMode(data);
+					changeUserMode(data,true);
 			    },
 			    error:function(){
 			    	$("#statusBack").modal('show');
@@ -236,7 +242,7 @@ function signIn(){
 			}
 
 			$("#signInModal").modal('hide');
-			getUserMode(info);
+			getUserMode(info,true);
 		}
 	});
 }
@@ -247,7 +253,7 @@ function logOut(){
 		outInfo['username'] = null;
 		outInfo['password'] = null;
 		outInfo['usertype'] = null;
-		getUserMode(outInfo);
+		getUserMode(outInfo,false);
 		refreshUserMode();
 	});
 }
