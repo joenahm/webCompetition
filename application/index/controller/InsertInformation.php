@@ -1,7 +1,7 @@
 <?php
 namespace app\index\controller;
 use think\Controller;
-class InsertInformation extends Controller
+class Insertinformation extends Controller
 {
 
     public function insertInformation()

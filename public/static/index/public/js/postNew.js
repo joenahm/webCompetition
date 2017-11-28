@@ -14,7 +14,7 @@ function postNew(){
 	$("#postNewModal").modal('hide');
 
 	$.ajax({
-		url:'/p/webCompetition/public/index.php/index/InsertInformation/insertInformation',
+		url:'/p/webCompetition/public/index.php/index/Insertinformation/insertInformation',
 		type:'POST',
 		async:true,
 		data:{
@@ -36,7 +36,6 @@ function postNew(){
 			$("#postBack").find("#postBackModalLabel").text("发布兼职");
 			$("#postBack").find(".glyphicon").attr("class","glyphicon glyphicon-remove");
 			$("#postBack").find("#postmsgBack").text("发布失败！");
-			alert('qweqwe');
 		}
 	});
 }
