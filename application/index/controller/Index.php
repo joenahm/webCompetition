@@ -66,17 +66,18 @@ public function login(){
                    'usertype'=>$_REQUEST['usertype'],
                ];
 //数据库取值验证
-        if($data['usertype']='student'){
+        if($data['usertype']=="student"){
           $resultB = db('student')->where('username',$data['username'])->find();
           if($data['username']==$resultB['username']&&$data['password']==$resultB['password']){
                 Session::set('name',$data);
           }else {
-            Session::set('name',NULL);
+              Session::set('name',NULL);
           }
         }else{
           $resultU = db('business')->where('username',$data['username'])->find();
             if($data['username']==$resultU['username']&&$data['password']==$resultU['password']){
-                  Session('name',$data);
+                  Session::set('name',$data);
+                  echo Session::set('name',$data);
 
             }else {
               Session::set('name',NULL);
@@ -90,7 +91,6 @@ public function login(){
       $b = $usertype['username'];
       $userType = $usertype['usertype'];
       $backinfo = self::infoback($b,$userType);
-      var_dump($usertype);
       die(json_encode($backinfo));
 }
 //刷新页面后判断session('usernmae')是否存在
