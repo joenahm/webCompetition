@@ -99,10 +99,13 @@ function checkSignIn(username, password, usertype){
 
 function changeUserMode(dataBack){
 	if( dataBack.status ){
-		$("#username-stage").html(dataBack.username);
-		$("#username-userPage").html(dataBack.username+" ");
+		$(".username-stage").eq(0).html(dataBack.username);
 		$("#signInUpPanel").hide(100);
-		$("#userToggle").show(200);
+		if( dataBack.usertype == "student" ){
+			$("#userToggle").show(200);
+		}else if( dataBack.usertype == "merchant" ){
+			$("#merchantToggle").show(200);
+		}
 	}else{
 		$("#username-stage").html("");
 		$("#signInUpPanel").show();

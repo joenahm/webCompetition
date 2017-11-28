@@ -16,7 +16,7 @@ body {
     background: #00a0a2; }
   #nav .navbar-toggle .icon-bar {
     background: #fff; }
-  #nav #userToggle #user {
+  #nav #userToggle .user, #nav #merchantToggle .user {
     margin: 5px 0 5px 0;
     width: 40px;
     height: 40px;
