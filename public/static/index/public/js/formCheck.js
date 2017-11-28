@@ -225,12 +225,9 @@ function signUp(){
 			    	$("#statusBack").modal('show');
 			        $("#statusBack").find("#statusBackModalLabel").text("注册");
 					$("#statusBack").find(".glyphicon").attr("class","glyphicon glyphicon-remove");
-<<<<<<< HEAD
 					$("#statusBack").find("#msgBack").text("注册失败，用户名已存在！");
 					alert('1234');
-=======
 					$("#statusBack").find("#msgBack").text("注册失败！");
->>>>>>> b2c42322daeab72c392b375b7213ad4cd83effba
 			    }
 			});
 		}
