@@ -11,6 +11,8 @@ function sortSelect(){
 }
 
 function postNew(){
+	$("#postNewModal").modal('hide');
+
 	$.ajax({
 		url:'/p/webCompetition/public/index.php/index/index/InsertInformation',
 		type:'POST',
@@ -28,7 +30,6 @@ function postNew(){
 			$("#postBack").find("#postBackModalLabel").text("发布兼职");
 			$("#postBack").find(".glyphicon").attr("class","glyphicon glyphicon-ok");
 			$("#postBack").find("#postmsgBack").text("发布成功！");
-			changeUserMode(data,true);
 		},
 		error:function(){
 			$("#postBack").modal('show');
