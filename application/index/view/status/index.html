@@ -11,14 +11,16 @@
 			<div class="col-md-12">
 				<div class="panel">
 					<div class="panel-body">
-						<h3>{$status.title} <h5 class="text-right publisher date">{$status.timestamp}</h5></h3><hr>
+						<h3>{$status.title} <h5 class="text-right publisher date" id="jobId">{$status.timestamp}</h5></h3><hr>
 						<div class="well">
 							简介：<hr>
 							{$status.details}
 						</div>
 						<h4>薪资：</h4><h3 class="text-danger">{$status.salary}</h3>
 						<hr>
-						<h4>发布者：</h4><br>
+						<button class="btn btn-default btn-lg" id="applyBtn">申请此兼职</button><br><br>
+						<h4>发布者：</h4>
+						<br>
 						<div class="well well-white clearfix">
 							<div class="pull-right text-right"><img src="public/images/merchant.jpg" alt="商家"></div>
 							<div class="pull-left">
@@ -27,20 +29,21 @@
 								<h4><strong>联系方式：</strong>{$statusUser.phone}</h4><br>
 								<h4><strong>分类：</strong> <a href=""  data-toggle="tooltip" data-placement="right" title="点击查看此分类的所有兼职">某某分类</a></h4>
 							</div>
-						</div><br>
+						</div>
+						<br>
 						<h4>申请者：</h4><br>
 						<div class="list-group">
 							<a href="#" class="list-group-item clearfix">
 								<div class="pull-left">
-								<h4 class="list-group-item-heading">UMP9小丸子：根牌港C大司马</h4><br>
-								<p class="list-group-item-text">根牌港C芜湖大司马的个人简介</p>
+									<h4 class="list-group-item-heading">UMP9小丸子：根牌港C大司马</h4><br>
+									<p class="list-group-item-text">根牌港C芜湖大司马的个人简介</p>
 								</div>
 								<div class="pull-right text-right"><img src="public/images/userDefault" alt="用户"></div>
 							</a>
 							<a href="#" class="list-group-item clearfix">
 								<div class="pull-left">
-								<h4 class="list-group-item-heading">UMP9小丸子：根牌港C大司马</h4><br>
-								<p class="list-group-item-text">根牌港C芜湖大司马的个人简介</p>
+									<h4 class="list-group-item-heading">UMP9小丸子：根牌港C大司马</h4><br>
+									<p class="list-group-item-text">根牌港C芜湖大司马的个人简介</p>
 								</div>
 								<div class="pull-right text-right"><img src="public/images/userDefault" alt="用户"></div>
 							</a>
@@ -57,6 +60,27 @@
 <script src=<?php echo '"__PUBLIC__/index/public/js/common.js?v'.rand().'"'; ?>></script>
 <script src="public\js\common.js"></script>
 <script>
-
+	$("#applyBtn").click(function(){
+		if( $("#signInUpPanel").css("display") == "block" ){
+			alert("请先登录！");
+		}else{
+			var jobId = $("#jobId").text();
+			$.ajax({
+				url:'',
+				type:'POST',
+				async:true,
+				data:{
+					id:jobId
+				},
+				dataType:'json',
+				success:function(data){
+					alert("已成功递交申请！");
+				},
+				error:function(){
+					alert("抱歉，申请失败。");
+				}
+			});
+		}
+	});
 </script>
 </html>
