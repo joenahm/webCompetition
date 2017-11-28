@@ -11,11 +11,13 @@ class InsertInformation extends Controller
             $data = [
               'title'=>$_REQUEST['title'],
               'salary'=>$_REQUEST['salary'],
-              ''=>$_REQUEST['info'],
-              ''=>$_REQUEST['isurgent'],
-              ''=>$_REQUEST['sort'],
+              'details'=>$_REQUEST['info'],
+              'isurgent'=>$_REQUEST['isurgent'],
+              'cate'=>$_REQUEST['sort'],
             ];
-            db('information')->insert($data);
+            var_dump($data);
+
+            //db('information')->insert($data);
         }
     }
 }

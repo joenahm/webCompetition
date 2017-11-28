@@ -6,7 +6,7 @@ class Status extends Controller
 //
     public function index()
     {
-      request->get();
+      $timestamp = request->get();
         $status = db('information')->where('timestamp',)->find();
         $this->assign('status',$status);
         $statusUser =db('business')->limit(0,1)->find();
