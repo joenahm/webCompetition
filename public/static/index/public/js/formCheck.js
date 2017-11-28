@@ -99,17 +99,19 @@ function checkSignIn(username, password, usertype){
 
 function changeUserMode(dataBack, isLogin){
 	if( dataBack.status ){
-		$(".username-stage").eq(0).html(dataBack.username);
 		$("#signInUpPanel").hide(100);
 		if( dataBack.usertype == "student" ){
+			$(".username-stage").eq(0).html(dataBack.username);
 			$("#userToggle").show(200);
 		}else if( dataBack.usertype == "merchant" ){
+			$(".username-stage").eq(1).html(dataBack.username);
 			$("#merchantToggle").show(200);
 		}
 	}else{
 		$("#username-stage").html("");
 		$("#signInUpPanel").show();
 		$("#userToggle").hide(100);
+		$("#merchantToggle").hide(100);
 		if( isLogin ){
 			$("#statusBack").modal('show');
 	        $("#statusBack").find("#statusBackModalLabel").text("登录");
@@ -248,14 +250,16 @@ function signIn(){
 }
 
 function logOut(){
-	$("#logOut").click(function(){
+	var func = function(){
 		var outInfo = [];
 		outInfo['username'] = null;
 		outInfo['password'] = null;
 		outInfo['usertype'] = null;
 		getUserMode(outInfo,false);
 		refreshUserMode();
-	});
+	};
+	$(".logOut").eq(0).click(func);
+	$(".logOut").eq(1).click(func);
 }
 
 $(function(){

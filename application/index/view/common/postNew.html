@@ -1,0 +1,90 @@
+<meta charset="utf-8">
+
+<div class="modal fade" id="postNewModal" tabindex="-1" role="dialog" aria-labelledby="postNewModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title text-center" id="myModalLabel">发布兼职</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal">
+					<div class="form-group has-feedback">
+						<label for="jobtitle" class="col-sm-2 control-label">标题</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="jobtitle" name="jobtitle" placeholder="请输入兼职标题">
+							<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+							<span class="help-block"></span>
+						</div>
+					</div>
+					<div class="form-group has-feedback">
+						<label for="jobinfo" class="col-sm-2 control-label">详情</label>
+						<div class="col-sm-10">
+							<textarea name="jobinfo" id="jobinfo" cols="30" rows="10"  class="form-control" style="resize: none;"></textarea>
+							<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+							<span class="help-block"></span>
+						</div>
+					</div>
+					<div class="form-group has-feedback">
+						<label for="salary" class="col-sm-2 control-label">薪资</label>
+						<div class="col-sm-10">
+							<input type="password" class="form-control" id="salary" name="salary" placeholder="请输入兼职薪资">
+							<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+							<span class="help-block"></span>
+						</div>
+					</div>
+					<div class="form-group has-feedback">
+						<div class="col-sm-offset-2 col-sm-10">
+							<div class="checkbox">
+								<label class="isurgent">
+									<input type="checkbox" name="usertype" value="student"> 加急
+								</label>
+								<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+								<span class="help-block"></span>
+							</div>
+							<a id="sort" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+							选择分类
+							<span class="caret"></span>
+							<style>
+								#sort:hover{
+									text-decoration: none;
+								}
+							</style>
+						</a>
+						<ul class="dropdown-menu col-sm-2" aria-labelledby="sort">
+							<li><a href="#">Action</a></li>
+							<li><a href="#">Another action</a></li>
+							<li><a href="#">Something else here</a></li>
+							<li><a href="#">Separated link</a></li>
+						</ul>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="buttom" class="btn btn-primary" id="postOut">发布</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- <div class="modal fade" id="statusBack" tabindex="-1" role="dialog" aria-labelledby="statusBackModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title text-center" id="statusBackModalLabel"></h4>
+			</div>
+			<div class="modal-body text-center">
+				<h1 class="glyphicon"></h1><br><br>
+				<span id="msgBack"></span>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+			</div>
+		</div>
+	</div>
+</div> -->
+<script src=<?php echo '"__PUBLIC__/index/public/js/postNew.js?v'.rand().'"'; ?>></script>
+<!-- src前边加上__PUBLIC__/index/ -->
