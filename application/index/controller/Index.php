@@ -11,7 +11,8 @@ class Index extends Controller
     {
         $event = controller('nav');
         $event->nav();
-        self::cate();
+        $postNew = controller('PostNew');
+        $postNew->postNew();
         self::gb();
         $this->information();
         return $this->fetch();
@@ -24,29 +25,40 @@ class Index extends Controller
                    'username'=>$_REQUEST['username'],
                    'password'=>$_REQUEST['password'],
                    'phone'=> $_REQUEST['phone'],
+                   'usertype'=>$_REQUEST['usertype'],
                ];
-      //进行服务器端的验证
-             $validate = \think\Loader::validate('User');
-              $result =  $validate->check($data);
-               if($result){
                     if($_REQUEST['usertype']=='merchant'){
-                        db('business')->insert($data);
+                        $result = db('business')->where('username',$data['username'])->find();
+                        if($result==null){
+                          db('business')->insert($data);
+                          Session::set('name',$data);
+                        }else{
+                            Session::set('name',null);
+                        }
                     }else{
-                        db('student')->insert($data);
+                      $result = db('student')->where('username',$data['username'])->find();
+                        if($result==null){
+                            db('student')->insert($data);
+                            Session::set('name',$data);
+                      }else{
+                          Session::set('name',null);
+                      }
                     }
-                 Session::set('username',$data['username']);
             }else{
-                Session::set('username',null);
+                Session::set('name',null);
               }
-            }else{
-                $this->error('12312');
+              $us = Session::get('name');
+              $b = $us['username'];
+              $ustype = $us['usertype'];
+              $backinfo = self::infoback($b,$ustype);
+             die(json_encode($backinfo));
+
             }
-            $backinfo = self::infoback(session('username'),$_REQUEST['usertype']);
-           die(json_encode($backinfo));
-    }
+
+
+
 //session调用函数
 private function infoback($sessionInfo,$userType){
-    $backinfo = array();
     if($sessionInfo){
         $backinfo['status'] = true;
         $backinfo['username'] = $sessionInfo;
@@ -98,18 +110,18 @@ public function refreshUserMode(){
     if(Session::has('name')){
         $usertype = Session::get('name');
         $b = $usertype['username'];
-        $userType =$usertype['usertype'];
+        $user =$usertype['usertype'];
     }else{
-        $userType = null;
+        $user = null;
         $b = null;
 
     }
-    $backinfo = self::infoback($b,$userType);
+    $backinfo = self::infoback($b,$user);
     die(json_encode($backinfo));
 
 }
 //获取分类
-public function cate()
+public function postNew()
 {
     $cate = db('cate')->select();
     $this->assign('cate',$cate);
