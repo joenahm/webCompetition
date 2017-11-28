@@ -11,20 +11,20 @@
 			<div class="col-md-12">
 				<div class="panel">
 					<div class="panel-body">
-						<h3>兼职名称 <h5 class="text-right publisher">发布于 2017.11.15</h5></h3><hr>
+						<h3>{$status.title} <h5 class="text-right publisher">{$status.timestamp}</h5></h3><hr>
 						<div class="well">
 							简介：<hr>
-							关于这个兼职的简介
+							{$status.details}
 						</div>
-						<h4>薪资：</h4><h3 class="text-danger">￥2500 / 月</h3>
+						<h4>薪资：</h4><h3 class="text-danger">{$status.salary}</h3>
 						<hr>
 						<h4>发布者：</h4><br>
 						<div class="well well-white clearfix">
 							<div class="pull-right text-right"><img src="public/images/merchant.jpg" alt="商家"></div>
 							<div class="pull-left">
-								<h4><strong>名称：</strong><a href="" data-toggle="tooltip" data-placement="right" title="点击跳转到商家主页">商家某某</a></h4><br>
-								<h4><strong>等级:</strong> <span class="label label-warning" data-toggle="tooltip" data-placement="right" title="此积分代表商家的信用等级">10</span></h4><br>
-								<h4><strong>联系方式：</strong>156xxxx0000</h4><br>
+								<h4><strong>名称：</strong><a href="" data-toggle="tooltip" data-placement="right" title="点击跳转到商家主页">{$statusUser.username}</a></h4><br>
+								<h4><strong>积分:</strong> <span class="label label-warning" data-toggle="tooltip" data-placement="right" title="此积分代表商家的信用等级">{$statusUser.credit}</span></h4><br>
+								<h4><strong>联系方式：</strong>{$statusUser.phone}</h4><br>
 								<h4><strong>分类：</strong> <a href=""  data-toggle="tooltip" data-placement="right" title="点击查看此分类的所有兼职">某某分类</a></h4>
 							</div>
 						</div><br>

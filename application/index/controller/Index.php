@@ -83,7 +83,6 @@ public function login(){
               Session::set('name',NULL);
             }
         }
-
     }else{
       $this->error();
   }
@@ -95,7 +94,7 @@ public function login(){
 }
 //刷新页面后判断session('usernmae')是否存在
 public function refreshUserMode(){
-    if(Session::has('username')){
+    if(Session::has('name')){
         $usertype = Session::get('name');
         $b = $usertype['username'];
         $userType =$usertype['usertype'];
