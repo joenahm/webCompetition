@@ -28,6 +28,12 @@ function setDate(){
 	}
 }
 
+function checkMsg(){
+	$("#messageBtn").click(function(){
+		
+	});
+}
+
 
 $(function(){
 	setBackTop();
@@ -44,4 +50,6 @@ $(function(){
 	refreshUserMode();
 	//设置时间格式
 	setDate();
+	//查看消息
+	checkMsg();
 });	
