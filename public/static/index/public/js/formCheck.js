@@ -97,7 +97,7 @@ function checkSignIn(username, password, usertype){
 	return status;
 }
 
-function changeUserMode(dataBack, isLogin){
+function changeUserMode(dataBack, type){
 	if( dataBack.status ){
 		$("#signInUpPanel").hide(100);
 		if( dataBack.usertype == "student" ){
@@ -112,16 +112,21 @@ function changeUserMode(dataBack, isLogin){
 		$("#signInUpPanel").show();
 		$("#userToggle").hide(100);
 		$("#merchantToggle").hide(100);
-		if( isLogin ){
+		if( type == "login" ){
 			$("#statusBack").modal('show');
 	        $("#statusBack").find("#statusBackModalLabel").text("登录");
 			$("#statusBack").find(".glyphicon").attr("class","glyphicon glyphicon-remove");
 			$("#statusBack").find("#msgBack").text("登录失败！");
+		}else if( type == "signup" ){
+			$("#statusBack").modal('show');
+	        $("#statusBack").find("#statusBackModalLabel").text("注册");
+			$("#statusBack").find(".glyphicon").attr("class","glyphicon glyphicon-remove");
+			$("#statusBack").find("#msgBack").text("注册失败，用户名已存在！");
 		}
 	}
 }
 
-function getUserMode(userInfo, isLogin){
+function getUserMode(userInfo, type){
 	$.ajax({
 		url:'/p/webCompetition/public/index.php/index/index/login',
 	    type:'POST',
@@ -133,7 +138,7 @@ function getUserMode(userInfo, isLogin){
 	    },
 	    dataType:'json',
 	    success:function(data){
-			changeUserMode(data,isLogin);
+			changeUserMode(data,type);
 	    },
 	    error:function(){
 	    	$("#statusBack").modal('show');
@@ -151,7 +156,7 @@ function refreshUserMode(){
 	    async:true,
 	    dataType:'json',
 	    success:function(data){
-			changeUserMode(data,false);
+			changeUserMode(data,"refresh");
 	    }
 	});
 }
@@ -214,14 +219,18 @@ function signUp(){
 			        $("#statusBack").find("#statusBackModalLabel").text("注册");
 					$("#statusBack").find(".glyphicon").attr("class","glyphicon glyphicon-ok");
 					$("#statusBack").find("#msgBack").text("注册成功！");
-					changeUserMode(data,true);
+					changeUserMode(data,"signup");
 			    },
 			    error:function(){
 			    	$("#statusBack").modal('show');
 			        $("#statusBack").find("#statusBackModalLabel").text("注册");
 					$("#statusBack").find(".glyphicon").attr("class","glyphicon glyphicon-remove");
+<<<<<<< HEAD
 					$("#statusBack").find("#msgBack").text("注册失败，用户名已存在！");
 					alert('1234');
+=======
+					$("#statusBack").find("#msgBack").text("注册失败！");
+>>>>>>> b2c42322daeab72c392b375b7213ad4cd83effba
 			    }
 			});
 		}
@@ -245,7 +254,7 @@ function signIn(){
 			}
 
 			$("#signInModal").modal('hide');
-			getUserMode(info,true);
+			getUserMode(info,"login");
 		}
 	});
 }
@@ -256,7 +265,7 @@ function logOut(){
 		outInfo['username'] = null;
 		outInfo['password'] = null;
 		outInfo['usertype'] = null;
-		getUserMode(outInfo,false);
+		getUserMode(outInfo,"logou");
 		refreshUserMode();
 	};
 	$(".logOut").eq(0).click(func);
