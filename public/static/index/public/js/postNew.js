@@ -1,3 +1,15 @@
+function sortSelect(){
+	var btns = $(".sortitem");
+	function binding(btn, data){
+		btn.click(function(){
+			$("#sortback").text(data);
+		});
+	}
+	for( var i = 0 ; i < btns.length ; i++ ){
+		binding(btns.eq(i),btns.eq(i).attr("data"));
+	}
+}
+
 function postNew(){
 	$.ajax({
 		url:'/p/webCompetition/public/index.php/index/index/InsertInformation',
@@ -26,3 +38,11 @@ function postNew(){
 		}
 	});
 }
+
+$(function(){
+	sortSelect();
+
+	$("#postOut").click(function(){
+		postNew();
+	});
+});
