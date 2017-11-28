@@ -57,6 +57,7 @@ private function infoback($sessionInfo,$userType){
 
 }
 //用户登录以及对返回信息的处理
+
 public function login(){
     if(!empty($_POST)){
                $data =[
@@ -64,44 +65,47 @@ public function login(){
                    'password'=>$_REQUEST['password'],
                    'usertype'=>$_REQUEST['usertype'],
                ];
-        //数据库取值验证
-       // $resultU = db('business')->where('username',$data['username'])->find();
-       // $resultB = db('student')->where('username',$data['username'])->find();
-       //  if($data['username']==($resultB['username']||$resultU['username'])&&$data['password']==($resultB['password']||$resultU['username'])){
-       //     Session::set('username',$data['username']);
-       //  }else{
-       //      Session::set('username',null);
+//数据库取值验证
         if($data['usertype']='student'){
           $resultB = db('student')->where('username',$data['username'])->find();
           if($data['username']==$resultB['username']||$data['password']==$resultB['username']){
-                Session::set('username',$data['username']);
+                Session::set('name',$data);
           }else {
-            Session::set('username',null);
+            Session::set('name',NULL);
           }
         }else{
           $resultU = db('business')->where('username',$data['username'])->find();
             if($data['username']==$resultU['username']||$data['password']==$resultU['username']){
-                  Session::set('username',$data['username']);
+                  Session('name',$data);
+
             }else {
-              Session::set('username',null);
+              Session::set('name',NULL);
             }
         }
 
     }else{
       $this->error();
   }
-      $backinfo = self::infoback(session('username'),$data['usertype']);
+      $usertype = Session::get('name');
+      $b = $usertype['username'];
+      $userType = $usertype['usertype'];
+      $backinfo = self::infoback($b,$userType);
+      //var_dump($usertype);
+
       die(json_encode($backinfo));
 }
 //刷新页面后判断session('usernmae')是否存在
 public function refreshUserMode(){
     if(Session::has('username')){
-        $b=session('username');
+        $usertype = Session::get('name');
+        $b = $usertype['username'];
+        $userType =$usertype['usertype'];
     }else{
+        $userType = null;
         $b = null;
-    }
 
-    $backinfo = self::infoback($b,null);
+    }
+    $backinfo = self::infoback($b,$userType);
     die(json_encode($backinfo));
 
 }
