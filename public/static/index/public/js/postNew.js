@@ -11,6 +11,8 @@ function sortSelect(){
 }
 
 function postNew(){
+	$("#postNewModal").modal('hide');
+
 	$.ajax({
 		url:'/p/webCompetition/public/index.php/index/InsertInformation/insertInformation',
 		type:'POST',
