@@ -11,8 +11,7 @@ class Index extends Controller
     {
         $event = controller('nav');
         $event->nav();
-        $postNew = controller('PostNew');
-        $postNew->postNew();
+        self::cate();
         self::gb();
         $this->information();
         return $this->fetch();
@@ -109,7 +108,13 @@ public function refreshUserMode(){
     die(json_encode($backinfo));
 
 }
-
+//获取分类
+public function cate()
+{
+    $cate = db('cate')->select();
+    $this->assign('cate',$cate);
+    return $this->fetch('common/postNew');
+}
 //兼职信息
     private function information(){
 

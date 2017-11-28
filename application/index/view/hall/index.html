@@ -37,14 +37,11 @@
 						<h3 class="panel-title">兼职分类</h3>
 					</div>
 					<div class="panel-body">
-					{volist name='cate' id='vo'}
-						<a href="" class="btn btn-link"><h4>{$vo.parentname}</h4></a>
-					{/volist}
+
 						<div class="well">
-							<a href="" class="btn btn-link">子分类1 <span class="label label-danger">热 !</span></a>
-							<a href="" class="btn btn-link">子分类2</a>
-							<a href="" class="btn btn-link">子分类3 <span class="label label-success">新 !</span></a>
-						</div>
+							{volist name='cate' id='vo'}
+								<a href="" class="btn btn-link"><h4>{$vo.parentname}</h4></a>
+							{/volist}	</div>
 					</div>
 				</div>
 			</div>
