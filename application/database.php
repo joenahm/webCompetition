@@ -19,10 +19,10 @@ return [
     // 用户名
     'username'        => 'root',
     // 密码
-        'password'        => 'root',
+         'password'        => 'root',
     //'password'        => '00001011',
     // 端口
-         'hostport'        => '8888',
+          'hostport'        => '8888',
     //'hostport'        => '',
     // 连接dsn
     'dsn'             => '',
