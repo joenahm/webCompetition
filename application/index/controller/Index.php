@@ -130,8 +130,12 @@ public function postNew()
 //兼职信息
     private function information(){
 
-        $information = db('information')->order('timestamp desc')->limit(0,10)->select();
-         $this->assign('information',$information);
+        $information1 = db('information')->order('timestamp desc')->limit(0,4)->select();
+        $information2 = db('information')->order('timestamp desc')->limit(4,4)->select();
+        $this->assign('information1',$information1);
+
+         $this->assign('information2',$information2);
+
     }
 //優秀商家
     public function gb(){
