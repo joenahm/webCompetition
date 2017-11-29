@@ -114,12 +114,12 @@ function changeUserMode(dataBack, type){
 		$("#merchantToggle").hide(100);
 		if( type == "login" ){
 			$("#statusBack").modal('show');
-	        $("#statusBack").find("#statusBackModalLabel").text("登录");
+			$("#statusBack").find("#statusBackModalLabel").text("登录");
 			$("#statusBack").find(".glyphicon").attr("class","glyphicon glyphicon-remove");
 			$("#statusBack").find("#msgBack").text("登录失败！");
 		}else if( type == "signup" ){
 			$("#statusBack").modal('show');
-	        $("#statusBack").find("#statusBackModalLabel").text("注册");
+			$("#statusBack").find("#statusBackModalLabel").text("注册");
 			$("#statusBack").find(".glyphicon").attr("class","glyphicon glyphicon-remove");
 			$("#statusBack").find("#msgBack").text("注册失败，用户名已存在！");
 		}
@@ -129,35 +129,35 @@ function changeUserMode(dataBack, type){
 function getUserMode(userInfo, type){
 	$.ajax({
 		url:'/p/webCompetition/public/index.php/index/index/login',
-	    type:'POST',
-	    async:true,
-	    data:{
-	        username:userInfo['username'],
-	        password:userInfo['password'],
-	        usertype:userInfo['usertype']
-	    },
-	    dataType:'json',
-	    success:function(data){
+		type:'POST',
+		async:true,
+		data:{
+			username:userInfo['username'],
+			password:userInfo['password'],
+			usertype:userInfo['usertype']
+		},
+		dataType:'json',
+		success:function(data){
 			changeUserMode(data,type);
-	    },
-	    error:function(){
-	    	$("#statusBack").modal('show');
-	        $("#statusBack").find("#statusBackModalLabel").text("登录");
+		},
+		error:function(){
+			$("#statusBack").modal('show');
+			$("#statusBack").find("#statusBackModalLabel").text("登录");
 			$("#statusBack").find(".glyphicon").attr("class","glyphicon glyphicon-remove");
 			$("#statusBack").find("#msgBack").text("登录失败！");
-	    }
+		}
 	});
 }
 
 function refreshUserMode(){
 	$.ajax({
 		url:'/p/webCompetition/public/index.php/index/index/refreshUserMode',
-	    type:'POST',
-	    async:true,
-	    dataType:'json',
-	    success:function(data){
+		type:'POST',
+		async:true,
+		dataType:'json',
+		success:function(data){
 			changeUserMode(data,"refresh");
-	    }
+		}
 	});
 }
 
@@ -205,28 +205,28 @@ function signUp(){
 
 			$.ajax({
 				url:'/p/webCompetition/public/index.php/index/index/datareturn',
-			    type:'POST',
-			    async:true,
-			    data:{
-			        phone:info['phone'],
-			        username:info['username'],
-			        password:info['password'],
-			        usertype:info['usertype']
-			    },
-			    dataType:'json',
-			    success:function(data){
-			        $("#statusBack").modal('show');
-			        $("#statusBack").find("#statusBackModalLabel").text("注册");
+				type:'POST',
+				async:true,
+				data:{
+					phone:info['phone'],
+					username:info['username'],
+					password:info['password'],
+					usertype:info['usertype']
+				},
+				dataType:'json',
+				success:function(data){
+					$("#statusBack").modal('show');
+					$("#statusBack").find("#statusBackModalLabel").text("注册");
 					$("#statusBack").find(".glyphicon").attr("class","glyphicon glyphicon-ok");
 					$("#statusBack").find("#msgBack").text("注册成功！");
 					changeUserMode(data,"signup");
-			    },
-			    error:function(){
-			    	$("#statusBack").modal('show');
-			     $("#statusBack").find("#statusBackModalLabel").text("注册");
-						$("#statusBack").find(".glyphicon").attr("class","glyphicon glyphicon-remove");
-			      $("#statusBack").find("#msgBack").text("注册失败！");
-			    }
+				},
+				error:function(){
+					$("#statusBack").modal('show');
+					$("#statusBack").find("#statusBackModalLabel").text("注册");
+					$("#statusBack").find(".glyphicon").attr("class","glyphicon glyphicon-remove");
+					$("#statusBack").find("#msgBack").text("注册失败！");
+				}
 			});
 		}
 	});

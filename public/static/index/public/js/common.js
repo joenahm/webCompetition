@@ -31,10 +31,27 @@ function setDate(){
 
 function checkMsg(){
 	$("#messageBtn").click(function(){
-		
+
 	});
 }
 
+function setUrgent(){
+	for( var i = 0 ; i < $(".is-urgent").length ; i++ ){
+		var status = $(".is-urgent").eq(i).text();
+		
+		if( status == " true" ){
+			$(".is-urgent").eq(i).text("急");
+		}else{
+			$(".is-urgent").eq(i).hide();
+		}
+	}
+}
+
+function setApplyBtn(){
+	if( $("#merchantToggle").css("display") == "block"){
+		$("#applyBtn").hide();
+	}
+}
 
 $(function(){
 	setBackTop();
@@ -53,4 +70,8 @@ $(function(){
 	setDate();
 	//查看消息
 	checkMsg();
+	//设置加急格式
+	setUrgent();
+	//设置商家隐藏申请兼职
+	setTimeout(setApplyBtn,200);
 });	

@@ -41,7 +41,7 @@
 						{volist name='information1' id='vo'}
 						<a class="jobInfoLink" href="http://localhost/p/webCompetition/public/index.php/index/Status/index?id={$vo.timestamp}">
 							<li class="jobInfo">
-								<span class="label label-danger">{$vo.insurgent}</span> <span class="jobTitle">{$vo.title}</span>
+								<span class="label label-danger is-urgent"> {$vo.insurgent}</span> <span class="jobTitle">{$vo.title}</span>
 							</li>
 							<li class="jobInfo merchant text-right">
 								【{$vo.username}】
@@ -58,7 +58,7 @@
 						{volist name='information2' id='vo'}
 						<a class="jobInfoLink" href="http://localhost/p/webCompetition/public/index.php/index/Status/index?id={$vo.timestamp}">
 							<li class="jobInfo">
-								<span class="label label-danger"> 急</span> <span class="jobTitle">{$vo.title}</span>
+								<span class="label label-danger is-urgent"> {$vo.insurgent}</span> <span class="jobTitle">{$vo.title}</span>
 							</li>
 							<li class="jobInfo merchant text-right">
 								【{$vo.username}】
