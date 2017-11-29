@@ -38,10 +38,10 @@
 				</div>
 				<div class="panel-body">
 					<div class="col-md-6">
-						{volist name='information' id='vo'}
+						{volist name='information1' id='vo'}
 						<a class="jobInfoLink" href="http://localhost/p/webCompetition/public/index.php/index/Status/index?id={$vo.timestamp}">
 							<li class="jobInfo">
-								<span class="label label-danger"> 急</span> <span class="jobTitle">{$vo.title}</span>
+								<span class="label label-danger">{$vo.insurgent}</span> <span class="jobTitle">{$vo.title}</span>
 							</li>
 							<li class="jobInfo merchant text-right">
 								【{$vo.username}】
@@ -55,7 +55,7 @@
 						{/volist}
 					</div>
 					<div class="col-md-6">
-						{volist name='information' id='vo'}
+						{volist name='information2' id='vo'}
 						<a class="jobInfoLink" href="http://localhost/p/webCompetition/public/index.php/index/Status/index?id={$vo.timestamp}">
 							<li class="jobInfo">
 								<span class="label label-danger"> 急</span> <span class="jobTitle">{$vo.title}</span>
@@ -107,7 +107,7 @@
 	<div class="col-md-12">
 		<div class="panel panel-default">
 			<div class="panel-heading panelHead">
-				<h3 class="panel-title">精品兼职</h3>
+				<h3 class="panel-title">优秀商家</h3>
 			</div>
 			<div class="panel-body">
 				<div class="row">
