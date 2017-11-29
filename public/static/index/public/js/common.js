@@ -22,8 +22,9 @@ function setBackTop(){
 
 function setDate(){
 	for( var i = 0 ; i < $(".date").length ; i++ ){
-		var time_stamp = $(".date").eq(i).html();
-		var date = new Date(parseInt(time_stamp));
+		var time_stamp = parseInt($(".date").eq(i).html());
+		var date = new Date();
+		date.setTime(time_stamp*1000);
 		$(".date").eq(i).html(date.toLocaleString());
 	}
 }
