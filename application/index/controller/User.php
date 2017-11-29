@@ -6,7 +6,9 @@ class User extends Controller
   
     public function index()
     {
-         self::userInformation();        
+         self::userInformation();       
+         $event = controller('Bmessage');
+      $event->Bmessage(); 
         return $this->fetch('User/user');
     }
    public function userInformation(){
