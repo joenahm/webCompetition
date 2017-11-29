@@ -51,7 +51,7 @@
 				<div class="panel">
 					<div class="panel-body">
 						{volist name='info' id='info'}
-						<a href="http://localhost/p/webCompetition/public/index.php/index/status/index.html" class="btn btn-link"><h4>{$info.title}</h4></a><div class="text-right publisher"><a href="http://localhost/p/webCompetition/public/index.php/index/status/index.html">{$info.username}</a>{$info.timestamp}</div>
+						<a href="http://localhost/p/webCompetition/public/index.php/index/Status/index?id={$info.timestamp}" class="btn btn-link"><h4>{$info.title}</h4></a><div class="text-right publisher"><a href="http://localhost/p/webCompetition/public/index.php/index/status/index.html">{$info.username}</a>{$info.timestamp}</div>
 						<hr>
 						{/volist}
 						</div>
