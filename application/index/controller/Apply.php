@@ -10,6 +10,7 @@ class Apply extends Controller
         $user = Session::get('name');
         if($_POST){
           $data =[
+          'merchant'=>$_REQUEST['merchant'],
           'information'=>$_REQUEST['id'],
           'username'=>$user['username'],
         ];

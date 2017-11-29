@@ -9,6 +9,8 @@ class Index extends Controller
 
     public function index()
     {
+      $event = controller('Bmessage');
+      $event->Bmessage();
         $event = controller('nav');
         $event->nav();
         $postNew = controller('PostNew');

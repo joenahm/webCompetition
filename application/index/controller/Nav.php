@@ -4,9 +4,11 @@ use think\Controller;
 use think\Session;
 class Nav extends Controller
 {
-  
+
     public function nav()
     {
+      $event = controller('Bmessage');
+      $event->Bmessage();
          if(Session::has('username')){
             $this->assign('userName',session('username'));
          }else{
@@ -22,7 +24,7 @@ public function status(){
         $data= array(
             'before'=> 'none',
             'after' => 'block',
-             
+
         );
         $this->assign('status',$data);
     }else{
@@ -35,6 +37,7 @@ public function status(){
     }
     return $this->fetch('common/nav');
     }
+
 }
 
 ?>

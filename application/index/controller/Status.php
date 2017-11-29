@@ -9,6 +9,8 @@ class Status extends Controller
       //控制器调用，输出分类信息
         $postNew = controller('PostNew');
         $postNew->postNew();
+        $event = controller('Bmessage');
+        $event->Bmessage();
 //获取传过来的时间戳
         $timestamp = request()->get('id');
         $status = db('information')->where('timestamp',$timestamp)->find();

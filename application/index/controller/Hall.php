@@ -6,6 +6,8 @@ class Hall extends Controller{
   public function index(){
     $postNew = controller('PostNew');
     $postNew->postNew();
+    $event = controller('Bmessage');
+    $event->Bmessage();
         //获取头部信息
       $event = controller('nav');
       $event->nav();
