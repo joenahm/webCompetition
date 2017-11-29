@@ -9,6 +9,8 @@ class Hall extends Controller{
         //获取头部信息
       $event = controller('nav');
       $event->nav();
+      //获取最新兼职信息
+      $this->info();
       //获取列表名
 
       $this->cate();
@@ -28,6 +30,12 @@ class Hall extends Controller{
   public function cateson(){
       $cateson = db ('cateson')->where('id',1)->select();
       $this->assign('cateson',$cateson);
+
+  }
+  //获取最新兼职信息
+  public function info(){
+        $information = db('information')->order('timestamp desc')->limit(0,10)->select();
+         $this->assign('info',$information);
 
   }
 

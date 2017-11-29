@@ -13,7 +13,7 @@
 					<div class="panel-body">
 						<h3>{$status.title} <h5 class="text-right publisher date" id="jobId">{$status.timestamp}</h5></h3><hr>
 						<div class="well">
-							简介：<hr>
+							详情：<hr>
 							{$status.details}
 						</div>
 						<h4>薪资：</h4><h3 class="text-danger">{$status.salary}</h3>
@@ -27,7 +27,7 @@
 								<h4><strong>名称：</strong><a href="" data-toggle="tooltip" data-placement="right" title="点击跳转到商家主页">{$statusUser.username}</a></h4><br>
 								<h4><strong>积分:</strong> <span class="label label-warning" data-toggle="tooltip" data-placement="right" title="此积分代表商家的信用等级">{$statusUser.credit}</span></h4><br>
 								<h4><strong>联系方式：</strong>{$statusUser.phone}</h4><br>
-								<h4><strong>分类：</strong> <a href=""  data-toggle="tooltip" data-placement="right" title="点击查看此分类的所有兼职">某某分类</a></h4>
+								<h4><strong>分类：</strong> <a href=""  data-toggle="tooltip" data-placement="right" title="点击查看此分类的所有兼职">{$status.cate}</a></h4>
 							</div>
 						</div>
 						<br>
